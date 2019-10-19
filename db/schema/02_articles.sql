@@ -1,5 +1,5 @@
 -- Drop and recreate Widgets table (Example)
-
+DROP TABLE IF EXISTS widgets CASCADE;
 DROP TABLE IF EXISTS articles CASCADE;
 CREATE TABLE articles (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -8,7 +8,9 @@ CREATE TABLE articles (
   thumbnail VARCHAR(255) NOT NULL,
   url VARCHAR(500) NOT NULL,
   post_date DATE,
-  likes BOOLEAN SET DEFAULT FALSE,
-  author_id INTEGER REFERENCES users.id ON DELETE CASCADE,
-  topic VARCHAR(50) NOT NULL
+  likes BOOLEAN NOT NULL DEFAULT FALSE,
+  topic VARCHAR(50) NOT NULL,
+  author_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
+
+

@@ -7,5 +7,8 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL,
   password VARCHAR(100) NOT NULL,
   profile_picture VARCHAR(255) NOT NULL,
-  user_since DATE
+  user_since DATE NOT NULL
 );
+
+
+
