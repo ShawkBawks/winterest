@@ -14,7 +14,7 @@ module.exports = (db) => {
     console.log(query);
     db.query(query)
       .then(data => {
-        const widgets = data.rows;
+        const articles = data.rows;
         res.json({ articles });
       })
       .catch(err => {
