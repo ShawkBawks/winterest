@@ -2,7 +2,7 @@
 // const router  = express.Router();
 
 // module.exports = (db) => {
-//   router.get("/", (req, res) => {
+//   router.post("/articles", (req, res) => {
 //     let query = `INSERT INTO  articles (title, description, thumbnail, url, post_date, topic, author_id)`;
 //     console.log(query);
 //     db.query(query)
