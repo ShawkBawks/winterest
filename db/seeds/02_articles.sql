@@ -1,4 +1,4 @@
--- Widgets table seeds here (Example)
+-- Articles table seeds here (Example)
 INSERT INTO articles (title, description, thumbnail, url, post_date, topic, author_id)
  VALUES ('Best Banana Bread Around', 'This banana bread blew away all other recipes I have tried.',
   'https://assets.bonappetit.com/photos/57ad371b53e63daf11a4dcfc/16:9/w_1200,c_limit/banana-bread-1-of-1.jpg',

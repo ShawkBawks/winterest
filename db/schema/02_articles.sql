@@ -1,4 +1,4 @@
--- Drop and recreate Widgets table (Example)
+-- Drop and recreate Articles table (Example)
 DROP TABLE IF EXISTS articles CASCADE;
 CREATE TABLE articles (
   id SERIAL PRIMARY KEY NOT NULL,
