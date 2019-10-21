@@ -10,7 +10,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM articles`;
+    let query = `SELECT * FROM articles ORDER BY id DESC`;
     console.log(query);
     db.query(query)
       .then(data => {
@@ -25,3 +25,13 @@ module.exports = (db) => {
   });
   return router;
 };
+
+
+// const getArticles = (request, response) => {
+//   db.query('SELECT * FROM articles ORDER BY id ASC', (error, results) => {
+//     if (error) {
+//       throw error;
+//     }
+//     response.status(200).json(results.rows)
+//   })
+// };

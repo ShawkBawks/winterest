@@ -9,10 +9,11 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const dbQueries  = require('./lib/queries');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
+const dbParams = require('./lib/db');
 const db = new Pool(dbParams);
 db.connect();
 
@@ -55,6 +56,19 @@ app.get("/", (req, res) => {
 app.get("/newArticles", (req, res) => {
   res.render("addArticle");
 });
+
+
+
+// app.get('/users', dbQueries.getUsers);
+// app.get('/users/:id', dbQueries.getUserById);
+// app.post('/users', dbQueries.createUser);
+// app.put('/users/:id', dbQueries.updateUser);
+// app.delete('/users/:id', dbQueries.deleteUser);
+// app.get('/articles', dbQueries.getArticles);
+// app.get('/articles/:id', dbQueries.getArticlesById);
+// app.post('/articles', dbQueries.createArticle);
+// app.delete('/articles/:id', dbQueries.deleteArticle);
+
 
 
 app.listen(PORT, () => {
