@@ -82,6 +82,7 @@
 
   &__submission-text {
     font-weight: 700;
+    font-size: 150%;
   }
 
   &__submission-icon{
@@ -90,7 +91,9 @@
     color: red;
   }
 
-  &__comments-container{}
+  &__comments-container{
+    margin-top: 2rem;
+  }
 
   &__error-message{
     text-align: center;
@@ -113,18 +116,22 @@
     overflow: auto;
 
     &--submission{
+      padding-top: 1rem;
       background: #4056A1;
       color: #FFFFFF;
       vertical-align: middle;
       display: inline-block;
       font-weight: 700;
       font-size: 125%;
-      padding: 0 1rem;
+      margin-top: 1rem;
+      padding: 0.2rem 1rem;
+      border-radius: 5px;
     }
 
     &--counter{
+      padding-top: 1rem;
       font-weight: 700;
-      font-size: 125%;
+      font-size: 130%;
       float: right;
     }
 
