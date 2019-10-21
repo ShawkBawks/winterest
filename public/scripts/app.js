@@ -12,16 +12,22 @@ $(document).ready(function () {
     });;
   });
 
-// const createNewArticle = function (article){
-//   let date = new Date(article.post_date).toDateString();
-//   const $articles = (`
-//     <article class ='articles'>
-//     <img src="${article.users.thumbnail}">
-//     ${articles.url}
-//     ${articles.description}
-//     ${articles.url}
-//     ${articles.topic}
+  // const createNewArticle = function (article){
+  //   let date = new Date(article.post_date).toDateString();
+  //   const $articles = (`
+  //     <article class ='articles'>
+  //     <img src="${article.users.thumbnail}">
+  //     ${articles.url}
+  //     ${articles.description}
+  //     ${articles.url}
+  //     ${articles.topic}
 
-//   `)
-// }
+  //   `)
+  // }
+
+  $('.article__comments-button').click( () => {
+    $('.article__comments-container').slideToggle('slow');
+    $('.article__comment').focus();
+  });
+
 });
