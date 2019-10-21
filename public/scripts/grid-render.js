@@ -7,6 +7,7 @@ $(document).ready(function () {
     $.get('/articles', function(res){
     renderArticles(res);
     //  res = articles.articles;
+    resizeAllGridItems();
     console.log(res)
     //  console.log(articles)
     })
