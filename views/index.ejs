@@ -5,19 +5,20 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav-bar.css" type="text/css" />
     <link rel="stylesheet" href="/styles/grid.css" type="text/css" />
     <!-- <link rel="stylesheet" href="/styles/grid-labs.css" type="text/css" /> -->
-
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/grid-render.js"></script>
     <script type="text/javascript" src="/scripts/grid.js"></script>
 
   </head>
   <header><% include partials/_header.ejs %></header>
   <body>
       <div class="grid">
+
           <div class="item blog">
             <div class="content">
               <div class="title">
@@ -39,68 +40,6 @@
             </div>
           </div>
 
-          <div class="item photo">
-            <div class="content">
-              <div class="title">
-                <h3>2: CSS Tricks You Should Know</h3>
-              </div>
-              <img src="https://cdn.lynda.com/course/536428/536428-637031898076002131-16x9.jpg" class="photothumb">
-              <div class="desc">
-                <p>These tricks really helped me make a way cooler layout!</p>
-              </div>
-              <div class="article_link">
-                  <a href="https://www.creativebloq.com/features/css-tricks-to-revolutionise-your-layouts">Link</a>
-              </div>
-              <div class="article_date">
-                post_date: 2019-10-15
-              </div>
-              <div>
-                topic: technology
-              </div>
-            </div>
-          </div>
-
-          <div class="item project">
-            <div class="content">
-              <div class="title">
-                <h3>3: Free Woodworking Plans</h3>
-              </div>
-              <img src="https://images-na.ssl-images-amazon.com/images/I/51nc4TpYz2L._SX398_BO1,204,203,200_.jpg" class="photothumb">
-              <div class="desc">
-                <p>These are some really handy Woodworking plans that I happened to come across, great for all skill levels.</p>
-              </div>
-              <div class="article_link">
-                  <a href="https://www.canadianwoodworking.com/free-plans">Link</a>
-              </div>
-              <div class="article_date">
-                post_date: 2018-01-05
-              </div>
-              <div>
-                topic: home improvement
-              </div>
-            </div>
-          </div>
-
-          <div class="item project">
-            <div class="content">
-              <div class="title">
-                <h3>3: Free Woodworking Plans</h3>
-              </div>
-              <img src="https://images-na.ssl-images-amazon.com/images/I/51nc4TpYz2L._SX398_BO1,204,203,200_.jpg" class="photothumb">
-              <div class="desc">
-                <p>These are some really handy Woodworking plans that I happened to come across, great for all skill levels.</p>
-              </div>
-              <div class="article_link">
-                  <a href="https://www.canadianwoodworking.com/free-plans">Link</a>
-              </div>
-              <div class="article_date">
-                post_date: 2018-01-05
-              </div>
-              <div>
-                topic: home improvement
-              </div>
-            </div>
-          </div>
         </div>
   </body>
 </html>

@@ -105,6 +105,7 @@ body {
 
 .blog .title{
   background-color: #ff9800;
+  overflow-wrap: break-word;
 }
 
 .photo .title{
@@ -113,6 +114,7 @@ body {
 
 .desc{
   padding: 10px 10px 5px 10px;
+  overflow-wrap: break-word;
 }
 
 .desc img{

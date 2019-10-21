@@ -18,10 +18,24 @@ li a {
   text-decoration: none;
 }
 
-li a:hover:not(.active) {
+li a:hover {
   background-color: #111;
 }
 
+.active:hover {
+  background-color: lightslategray;
+}
 .active {
-  background-color: #4CAF50;
+  background-color: lightsteelblue;
+}
+
+.active2:hover{
+  background-color: salmon;
+}
+.active2 {
+  background-color: lightsalmon;
+}
+
+.drop-filter {
+  padding: inherit 0;
 }
