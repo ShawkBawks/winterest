@@ -57,6 +57,10 @@ app.get("/newArticles", (req, res) => {
   res.render("addArticle");
 });
 
+app.get("/viewArticle", (req, res) => {
+  res.render("viewArticle")
+});
+
 
 
 // app.get('/users', dbQueries.getUsers);
