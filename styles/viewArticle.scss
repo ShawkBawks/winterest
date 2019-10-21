@@ -1,49 +1,65 @@
 .article {
+  background: lemonchiffon;
   display: flex;
   flex-direction: column;
 
   &__title-container {
-    border: red solid 3px;
+    padding-left: 1rem;
   }
 
   &__title-header {}
 
   &__body-container {
     display: flex;
-    border: red solid 3px;
-
     justify-content: space-between;
   }
 
   &__imageRating{
-    border: blue solid 2px;
+    padding: 1rem 1rem;
     flex: 1;
   }
 
   &__image-container{}
 
   &__image{
-    border-radius: 25px;
-    width: 220px;
+    border-radius: 10px;
+    width:100%;
   }
 
-  &__rating-container{}
+  &__rating-icons{
+    margin-top: 1rem;
+    font-size: 125%;
+  }
+
+  &__rating-icon {}
 
   &__descriptionUrl{
-    border: blue solid 2px;
+    padding: 0rem 1rem 1rem 1rem;
     flex: 1;
   }
 
-  &__description-container{}
+  &__description-container{
+  }
 
   &__description{}
 
   &__url-container{}
 
-  &__url{}
+  &__url{
+    font-weight: 700;
+    font-size: 125%;
+  }
+
+  &__url:link{
+    text-decoration: none;
+  }
+
+  &__url:visited{
+    text-decoration: none;
+  }
 
   &__comment-container{
-    border: red solid 3px;
+    padding: 1rem 1rem;
   }
 
   &__comments{
@@ -57,13 +73,33 @@
     }
   }
 
-  &__comments-header{}
+  &__comments-button{
+    background: inherit;
+    border: none;
+    outline: none;
+  }
 
-  &__comments-icon{
+  &__submission-text {
+    font-weight: 700;
+  }
+
+  &__submission-icon{
 
     animation: bounce 1.5s infinite;
     color: red;
   }
+
+  &__comments-container{}
+
+  &__error-message{
+    text-align: center;
+    color: red;
+    display: none;
+    border: red solid 3px;
+    width: 100%;
+  }
+
+  &__comments-form{}
 
   &__comment{
 
@@ -80,14 +116,22 @@
       color: #FFFFFF;
       vertical-align: middle;
       display: inline-block;
+      font-weight: 700;
+      font-size: 125%;
+      padding: 0 1rem;
     }
 
-    &--counter{}
+    &--counter{
+      font-weight: 700;
+      font-size: 125%;
+      float: right;
+    }
 
   }
 
-  &__comment-title{}
-
-  &__comments{}
+  ::placeholder {
+    color: black;
+    font-weight: 700;
+  }
 
 }

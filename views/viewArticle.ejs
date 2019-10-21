@@ -13,7 +13,6 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/grid.js"></script>
 </head>
 <header><% include partials/_header.ejs %></header>
 <body>
@@ -24,12 +23,12 @@
         <div class="article__body-container">
             <div class="article__imageRating">
                 <div class="article__image-container">
-                    <img class="article__image" src="https://products2.imgix.drizly.com/ci-corona-extra-2b48031ca2c738b1.jpeg?auto=format%2Ccompress&dpr=2&fm=jpeg&h=240&q=20" alt="">
+                    <img class="article__image" src="https://www.kings-de.com/images/locations/franklin/draft-room/draft-room-beers.jpg" alt="">
                 </div>
-                <div class="article__rating-container">
-                    <a href="#"><i class="fa fa-flag"></i></a>
-                    <a href="#"><i class="fa fa-heart"></i></a>
-                    <a href="#"><i class="fa fa-refresh"></i></a>
+                <div class="article__rating-icons">
+                    <a href="#" id="article__rating-icon"><i class="fa fa-flag"></i></a>
+                    <a href="#" id="article__rating-icon"><i class="fa fa-heart"></i></a>
+                    <a href="#" id="article__rating-icon"><i class="fa fa-refresh"></i></a>
                 </div>
             </div>
                 <div class="article__descriptionUrl">
@@ -42,12 +41,18 @@
             </div>
         </div>
         <div class="article__comment-container">
-          <form action="article__comments">
-              <h1 class="article__comments-header">Comments <i class="fa fa-angle-double-down article__comments-icon" aria-hidden="true"></i></h1>
-              <textarea class="article__comment" rows= "1" name="text" placeholder="What are you humming about?"></textarea>
-              <input class="article__comment--submission" type="submit" value="Tweet">
-              <span class="article__comment--counter">140</span>
-          </form>
+          <button class="article__comments-button">
+            <span class="article__submission-text">Comments</span>
+            <i class="fa fa-angle-double-down article__submission-icon" aria-hidden="true"></i>
+          </button>
+          <section class="article__comments-container">
+            <div class="article__error-message"></div>
+            <form action="article__comments-form">
+                <textarea class="article__comment" rows= "1" name="text" placeholder="What are you humming about?"></textarea>
+                <input class="article__comment--submission" type="submit" value="Post">
+                <span class="article__comment--counter">140</span>
+            </form>
+          </section>
         </div>
     </article>
 </body>
