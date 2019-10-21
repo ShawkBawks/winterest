@@ -56,6 +56,16 @@ app.get("/newArticles", (req, res) => {
   res.render("addArticle");
 });
 
+//load login page
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.post("/register", (req, res) => {
+  console.log('test:', req.body)
+  res.redirect('/login')
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
