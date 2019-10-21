@@ -1,0 +1,138 @@
+.article {
+  background: lemonchiffon;
+  display: flex;
+  flex-direction: column;
+
+  &__title-container {
+    padding-left: 1rem;
+  }
+
+  &__title-header {}
+
+  &__body-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__imageRating{
+    padding: 1rem 1rem;
+    flex: 1;
+  }
+
+  &__image-container{}
+
+  &__image{
+    border-radius: 10px;
+    width:100%;
+  }
+
+  &__rating-icons{
+    margin-top: 1rem;
+    font-size: 125%;
+  }
+
+  &__rating-icon {}
+
+  &__descriptionUrl{
+    padding: 0rem 1rem 1rem 1rem;
+    flex: 1;
+  }
+
+  &__description-container{
+    text-align: justify;
+  }
+
+  &__description{}
+
+  &__url-container{}
+
+  &__url{
+    font-weight: 700;
+    font-size: 125%;
+  }
+
+  &__url:link{
+    text-decoration: none;
+  }
+
+  &__url:visited{
+    text-decoration: none;
+  }
+
+  &__comment-container{
+    padding: 1rem 1rem;
+  }
+
+  &__comments{
+
+    @keyframes bounce {
+      0%   { transform: translateY(-5px) }
+      25%   { transform: translateY(0) }
+      50%   { transform: translateY(5px) }
+      50%   { transform: translateY(0px) }
+      100% { transform: translateY(-5px) }
+    }
+  }
+
+  &__comments-button{
+    background: inherit;
+    border: none;
+    outline: none;
+  }
+
+  &__submission-text {
+    font-weight: 700;
+  }
+
+  &__submission-icon{
+
+    animation: bounce 1.5s infinite;
+    color: red;
+  }
+
+  &__comments-container{}
+
+  &__error-message{
+    text-align: center;
+    color: red;
+    display: none;
+    border: red solid 3px;
+    width: 100%;
+  }
+
+  &__comments-form{}
+
+  &__comment{
+
+    background: transparent;
+    border: 0px solid;
+    border-bottom: 2px solid rgb(84,81,108);
+    width: 100%;
+    outline: none;
+    resize: none;
+    overflow: auto;
+
+    &--submission{
+      background: #4056A1;
+      color: #FFFFFF;
+      vertical-align: middle;
+      display: inline-block;
+      font-weight: 700;
+      font-size: 125%;
+      padding: 0 1rem;
+    }
+
+    &--counter{
+      font-weight: 700;
+      font-size: 125%;
+      float: right;
+    }
+
+  }
+
+  ::placeholder {
+    color: black;
+    font-weight: 700;
+  }
+
+}
