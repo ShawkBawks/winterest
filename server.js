@@ -56,6 +56,10 @@ app.get("/newArticles", (req, res) => {
   res.render("addArticle");
 });
 
+app.get("/viewArticle", (req, res) => {
+  res.render("viewArticle")
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
