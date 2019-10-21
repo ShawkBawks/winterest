@@ -62,6 +62,11 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.post("/register", (req, res) => {
+  console.log('test:', req.body)
+  res.redirect('/login')
+ });
+
 app.get("/viewArticle", (req, res) => {
   res.render("viewArticle")
 });
