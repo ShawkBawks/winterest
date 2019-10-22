@@ -149,8 +149,15 @@ const addUser =  function(user) {
   console.log('addUser got called lmfao:')
   console.log(user)
   console.log(user.password)
+<<<<<<< HEAD
   return db.query(`INSERT INTO users (username, email, password, profile_picture) VALUES ('${user.username}', 'example@example.com', 'password', 'http://ern-dubai.com/wp-content/uploads/2019/04/facebook-anonymous-app.jpg')
   RETURNING *;
+=======
+  return db.query(`INSERT INTO users (
+    username, email, password, profile_picture)
+  VALUES (
+    '${user.username}', 'example@example.com', '${user.password}', 'http://ern-dubai.com/wp-content/uploads/2019/04/facebook-anonymous-app.jpg');
+>>>>>>> f37aa44c2bcdd3dc69b67e8b0f87f70e0516dae2
   `)
   .then(res => res.rows[0]);
 }
