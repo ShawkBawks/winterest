@@ -63,14 +63,6 @@ app.get("/login", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  const getUserByEmail = function (email, users) {
-    for (const userID in users) {
-      if (users[userID].email === email) {
-        return users[userID];
-      }
-    } return undefined;
-  };
-
   const body = req.body;
 console.log(body);
 });
