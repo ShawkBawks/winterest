@@ -4,6 +4,7 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  border-bottom: 1px black solid;
 }
 
 li {
@@ -38,4 +39,12 @@ li a:hover {
 
 .drop-filter {
   padding: inherit 0;
+}
+
+.container-fluid {
+  background-color: #374046;
+}
+
+body {
+  background-color: #374046 !important;
 }
