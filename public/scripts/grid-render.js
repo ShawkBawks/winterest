@@ -49,7 +49,7 @@ $(document).ready(function () {
         <p>${article.description}</p>
       </div>
       <div class="article_link">
-          <a href="${article.url}">Link</a>
+          <a target="_blank" href="${article.url}">Link</a>
       </div>
       <div class="article_date">
         post_date: 2019-10-18
