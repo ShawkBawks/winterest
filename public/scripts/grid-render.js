@@ -10,13 +10,14 @@ $(document).ready(function () {
     resizeAllGridItems();
     // console.log(res)
     //  console.log(articles)
+
     })
   };
 
   // grid render
   let renderArticles = (articles) => {
     // // articles = JSON.parse(articles)
-    // console.log(articles.articles[0])
+    console.log(articles.articles[0])
     articles = articles.articles;
     $('.grid').empty();
     for (let article in articles){
@@ -38,6 +39,7 @@ $(document).ready(function () {
   // }
 
   let createArticleTile = function(article) {
+    let date = new Date(article.post_date).toDateString();
     let $article = (`
     <div class="item blog">
     <div class="content">
@@ -52,7 +54,7 @@ $(document).ready(function () {
           <a target="_blank" href="${article.url}">Link</a>
       </div>
       <div class="article_date">
-        post_date: 2019-10-18
+        post_date: ${date}
       </div>
       <div>
         topic: ${article.topic}
