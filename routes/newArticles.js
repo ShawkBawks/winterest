@@ -2,8 +2,9 @@
 // const router  = express.Router();
 
 module.exports = (db) => {
-  router.post("/articles", (req, res) => {
-    let query = `INSERT INTO  articles (title, description, thumbnail, url, post_date, topic, author_id)`;
+  router.post("/newArticles", (req, res) => {
+    let query = `INSERT INTO  articles (title, description, thumbnail, url, topic)
+    VALUES ($1, $2, $3, $4, $5)`;
     console.log(query);
     db.query(query)
       .then(data => {

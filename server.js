@@ -62,6 +62,21 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.post("/login", (req, res) => {
+  const getUserByEmail = function (email, users) {
+    for (const userID in users) {
+      if (users[userID].email === email) {
+        return users[userID];
+      }
+    } return undefined;
+  };
+
+  const body = req.body;
+console.log(body);
+});
+
+
+
 app.post("/register", (req, res) => {
   console.log('test:', req.body)
   res.redirect('/login')
@@ -80,7 +95,7 @@ app.get("/viewArticle", (req, res) => {
 // app.delete('/users/:id', dbQueries.deleteUser);
 // app.get('/articles', dbQueries.getArticles);
 // app.get('/articles/:id', dbQueries.getArticlesById);
-// app.post('/articles', dbQueries.createArticle);
+// app.post('/newArticles', dbQueries.createArticle);
 // app.delete('/articles/:id', dbQueries.deleteArticle);
 
 
