@@ -13,34 +13,46 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/grid-render.js"></script>
     <script type="text/javascript" src="/scripts/grid.js"></script>
+    <!-- Latest compiled and minified CSS -->
 
+    <!-- bootystrappy -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <header><% include partials/_header.ejs %></header>
   <body>
+    <div class="container-fluid">
+      <!-- GRID BODY  -->
       <div class="grid">
-
-          <div class="item blog">
-            <div class="content">
-              <div class="title">
-                <h3>1: Best Banana Bread Around</h3>
-              </div>
+        <!-- ITEM START (HARDCODED EXAMPLE) -->
+        <div class="item blog">
+          <div class="content">
+            <div class="title">
+              <h3>1: Best Banana Bread Around</h3>
+            </div>
               <img src="https://assets.bonappetit.com/photos/57ad371b53e63daf11a4dcfc/16:9/w_1200,c_limit/banana-bread-1-of-1.jpg" class="photothumb">
-              <div class="desc">
-                <p>This banana bread blew away all other recipes I have tried.</p>
-              </div>
-              <div class="article_link">
-                  <a href="https://www.bonappetit.com/recipe/banana-bread">Link</a>
-              </div>
-              <div class="article_date">
-                post_date: 2019-10-18
-              </div>
-              <div>
-                topic: food
-              </div>
+            <div class="desc">
+              <p>This banana bread blew away all other recipes I have tried.</p>
+            </div>
+            <div class="article_link">
+              <a href="https://www.bonappetit.com/recipe/banana-bread">Link</a>
+            </div>
+            <div class="article_date">
+              post_date: 2019-10-18
+            </div>
+            <div>
+              topic: food
             </div>
           </div>
-
         </div>
+      </div>
   </body>
 </html>
 
