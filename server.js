@@ -150,10 +150,9 @@ const addUser =  function(user) {
   console.log(user)
   console.log(user.password)
   return db.query(`INSERT INTO users (
-    name, email, password, profile_picture)
+    username, email, password, profile_picture)
   VALUES (
-    '${user.username}', 'example@example.com', '${user.password}', 'http://ern-dubai.com/wp-content/uploads/2019/04/facebook-anonymous-app.jpg')
-  RETURNING *;
+    '${user.username}', 'example@example.com', '${user.password}', 'http://ern-dubai.com/wp-content/uploads/2019/04/facebook-anonymous-app.jpg');
   `)
   .then(res => res.rows[0]);
 }
