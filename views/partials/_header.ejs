@@ -4,12 +4,19 @@
           <li><a href="/">Home</a></li>
           <li><a href="#" class="drop-search">Search</a></li>
           <div class="sign">
-            <% if(true){ %>
-              <li style="float:right"><a class="active2" class="login" href="/login"">Login</a></li>
+            <% if(!locals.user){ %>
+              <li style="float:right"><a class="active2" class="login" href="/login"">Login/Register</a></li>
             <% } else { %>
               <li><a href="/my-articles">My Articles</a></li>
               <li><a href="/newArticles">Add Articles</a></li>
-              <li style="float:right"><a class="active" class="logout" href="/">Logout</a>
+              <li style="float:right"><a href="/profile">Profile</a></li>
+              <li style="float:right">
+                  <form method='POST' action='/logout' id='logout'>
+                    <input type="submit" class="active" value="Logout" class="btn btn-primary"></input>
+                  </form>
+              </li>
+
+              <!-- <a class="active" class="logout" href="#" method="POST" action='/logout'>Logout</a> -->
             <% } %>
           </div>
         </ul>
