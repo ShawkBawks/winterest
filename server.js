@@ -78,12 +78,6 @@ app.get("/login", (req, res) => {
   let templateVars = {user: req.session.user_id};
   res.render("login", templateVars)
 });
-<<<<<<< HEAD
-
-app.post("/login", (req, res) => {
-  const body = req.body;
-console.log(body);
-=======
 //req.session = null;
 app.post('/login', (req, res) => {
   // console.log(req.body.username);
@@ -111,7 +105,6 @@ app.post('/login', (req, res) => {
   //4 Select * from users where username = "+username and password = "password"
   //5 if you get something or the count of return of rows is 1? //then you say all good with the login
   //6 else if there was no return of the user row or count == 0 then give message, please check your username and password
->>>>>>> f0f2530308e121e9416ae1e0d5b503f74cfd2611
 });
 
 //json
