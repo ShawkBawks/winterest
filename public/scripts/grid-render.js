@@ -8,7 +8,7 @@ $(document).ready(function () {
     renderArticles(res);
     //  res = articles.articles;
     resizeAllGridItems();
-    console.log(res)
+    // console.log(res)
     //  console.log(articles)
     })
   };
@@ -22,8 +22,8 @@ $(document).ready(function () {
     for (let article in articles){
       let output = createArticleTile(articles[article]);
       $('.grid').prepend(output);
-      console.log(articles[article])
-      console.log('test renderArticles:', article)
+      // console.log(articles[article])
+      // console.log('test renderArticles:', article)
     }
   }
 
