@@ -118,6 +118,11 @@ app.post("/register", (req, res) => {
   res.redirect('/')
  });
 
+ app.post("/newArticles", (req, res) => {
+   addArticle(req.body)
+   req.session.user_id = req.body.username;
+   res.redirect('/')
+ });
 
 app.get("/viewArticle", (req, res) => {
     let templateVars = {user: req.session.user_id};
@@ -149,15 +154,10 @@ const addUser =  function(user) {
   console.log('addUser got called lmfao:')
   console.log(user)
   console.log(user.password)
-<<<<<<< HEAD
-  return db.query(`INSERT INTO users (username, email, password, profile_picture) VALUES ('${user.username}', 'example@example.com', 'password', 'http://ern-dubai.com/wp-content/uploads/2019/04/facebook-anonymous-app.jpg')
-  RETURNING *;
-=======
   return db.query(`INSERT INTO users (
     username, email, password, profile_picture)
   VALUES (
     '${user.username}', 'example@example.com', '${user.password}', 'http://ern-dubai.com/wp-content/uploads/2019/04/facebook-anonymous-app.jpg');
->>>>>>> f37aa44c2bcdd3dc69b67e8b0f87f70e0516dae2
   `)
   .then(res => res.rows[0]);
 }
@@ -167,7 +167,7 @@ const addArticle = function(article) {
   console.log(article)
   console.log(article.title)
   return db.query(`INSERT INTO articles (title, description, thumbnail, url, topic) VALUES
-  (${article.title}, ${article.description}, ${article.thumbnail}, ${article.url}, ${article.topic})
+  ('${article.title}', '${article.description}', '${article.thumbnail}', '${article.url}', '${article.topic}')
   `)
   .then(res => res.rows[0]);
 }
