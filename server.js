@@ -118,6 +118,11 @@ app.post("/register", (req, res) => {
   res.redirect('/')
  });
 
+ app.post("/newArticles", (req, res) => {
+   addArticle(req.body)
+   req.session.user_id = req.body.username;
+   res.redirect('/')
+ });
 
 app.get("/viewArticle", (req, res) => {
     let templateVars = {user: req.session.user_id};
@@ -162,7 +167,7 @@ const addArticle = function(article) {
   console.log(article)
   console.log(article.title)
   return db.query(`INSERT INTO articles (title, description, thumbnail, url, topic) VALUES
-  (${article.title}, ${article.description}, ${article.thumbnail}, ${article.url}, ${article.topic})
+  ('${article.title}', '${article.description}', '${article.thumbnail}', '${article.url}', '${article.topic}')
   `)
   .then(res => res.rows[0]);
 }
