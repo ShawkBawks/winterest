@@ -140,7 +140,7 @@ function authenticateUser(username, password){
 // app.delete('/users/:id', dbQueries.deleteUser);
 // app.get('/articles', dbQueries.getArticles);
 // app.get('/articles/:id', dbQueries.getArticlesById);
-// app.post('/articles', dbQueries.createArticle);
+// app.post('/newArticles', dbQueries.createArticle);
 // app.delete('/articles/:id', dbQueries.deleteArticle);
 
 
