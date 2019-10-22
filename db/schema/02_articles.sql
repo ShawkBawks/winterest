@@ -6,9 +6,9 @@ CREATE TABLE articles (
   description VARCHAR(255) NOT NULL,
   thumbnail VARCHAR(255) NOT NULL,
   url VARCHAR(500) NOT NULL,
-  -- post_date DATE,
+  topic VARCHAR(50) NOT NULL,
+  post_date DATE
   -- likes BOOLEAN NOT NULL DEFAULT FALSE,
-  topic VARCHAR(50) NOT NULL
   -- author_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
