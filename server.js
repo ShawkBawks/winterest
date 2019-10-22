@@ -120,7 +120,7 @@ app.post("/register", (req, res) => {
 
  app.post("/newArticles", (req, res) => {
    addArticle(req.body)
-   req.session.user_id = req.body.username;
+  //  req.session.user_id = req.body.username;
    res.redirect('/')
  });
 
@@ -166,8 +166,8 @@ const addArticle = function(article) {
   console.log('addArticle was called kek:')
   console.log(article)
   console.log(article.title)
-  return db.query(`INSERT INTO articles (title, description, thumbnail, url, topic) VALUES
-  ('${article.title}', '${article.description}', '${article.thumbnail}', '${article.url}', '${article.topic}')
+  return db.query(`INSERT INTO articles (title, description, thumbnail, url, topic, post_date) VALUES
+  ('${article.title}', '${article.description}', '${article.thumbnail}', '${article.url}', '${article.topic}', now());
   `)
   .then(res => res.rows[0]);
 }
