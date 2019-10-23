@@ -7,9 +7,9 @@ CREATE TABLE articles (
   thumbnail VARCHAR(255) NOT NULL,
   url VARCHAR(500) NOT NULL,
   topic VARCHAR(50) NOT NULL,
-  post_date DATE
+  post_date DATE,
   -- likes BOOLEAN NOT NULL DEFAULT FALSE,
-  -- author_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+  author_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
 
