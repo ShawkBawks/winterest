@@ -14,6 +14,7 @@ $(document).ready(function () {
   $(".article__comments-form").on('submit', function(event) {
     event.preventDefault();
     let commentBody = $(this).serialize();
+    console.log(commentBody);
     if (!$('.article__comment').val()) {
       $('.article__error-message').html('&#9888; Empty Post! please enter some chars to post. &#9888;').show().delay(3000).fadeOut();
     }
@@ -54,9 +55,7 @@ $(document).ready(function () {
     let $articleReviews = (`
     <article class="review">
       <header class="review-header">
-        <img class="review-img" src=${tweet.user.avatars}>
         <h4 class= "review-username">${tweet.user.name}</h4>
-        <h4 class="review-userHandle">${tweet.user.handle}</h4>
       </header>
       <span class="review-body">${escape(tweet.content.text)}</span>
       <footer class="review-footer">
@@ -72,4 +71,4 @@ $(document).ready(function () {
     return articleReviews;
   };
 
-})  
+})
