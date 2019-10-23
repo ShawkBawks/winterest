@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="/styles/nav-bar.css" type="text/css" />
     <link rel="stylesheet" href="/styles/grid.css" type="text/css" />
     <link rel="stylesheet" href="/styles/viewArticle.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/articleReview.css" type="text/css" />
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/viewArticle.js"></script>
+    <script type="text/javascript" src="/scripts/comment-char-counter.js"></script>
+
 </head>
 <header><% include partials/_header.ejs %></header>
 <body class="body">
@@ -34,12 +37,12 @@
       </div>
       <div class="article__descriptionUrl">
         <div class="article__description-container">
-          <h4 class="article__description">Corona Extra is lighter than traditional beers, with a crisp and refreshing taste. This light, dry beer has pleasant malt and hop notes with a round dry finish. Regardless of the time of the year, Corona is best served ice cold, with a wedge of lime that complements and intensifies the flavour through the palate.
-            <br>Despite being widely available and, according to their website, the world's fifth best-selling brand, Corona has managed to maintain an image as the alternative to the usual. It's hard to say why exactly. Though the bartenders' custom of shoving a lime wedge in a bottle before handing it to the customer might have something to do with it. If you are used to light or flavorless American lager and suddenly you are faced with limeade disguised as beer, then you might think it pretty exotic.
-          </h4>
+              <h4 class="article__description">Corona Extra is lighter than traditional beers, with a crisp and refreshing taste. This light, dry beer has pleasant malt and hop notes with a round dry finish. Regardless of the time of the year, Corona is best served ice cold, with a wedge of lime that complements and intensifies the flavour through the palate.
+                <br>Despite being widely available and, according to their website, the world's fifth best-selling brand, Corona has managed to maintain an image as the alternative to the usual. It's hard to say why exactly. Though the bartenders' custom of shoving a lime wedge in a bottle before handing it to the customer might have something to do with it. If you are used to light or flavorless American lager and suddenly you are faced with limeade disguised as beer, then you might think it pretty exotic.
+              </h4>
         </div>
         <div class="article__url-container">
-          <a class="article__url" href="https://www.coronaextra.ca/">Corona Extra</a>
+              <a class="article__url" href="https://www.coronaextra.ca/">Corona Extra</a>
         </div>
       </div>
     </div>
@@ -51,7 +54,7 @@
       </button>
       <section class="article__comments-container">
         <div class="article__error-message"></div>
-        <form action="article__comments-form" method="POST" action="">
+        <form action="article__comments-form" method="POST" action="/viewArticle">
           <textarea class="article__comment" rows= "1" name="text" placeholder="What are you humming about?"></textarea>
           <input class="article__comment--submission" type="submit" value="Post">
           <span class="article__comment--counter">140</span>
@@ -59,23 +62,23 @@
       </section>
     </div>
   </article>
-  <div class="post-container">
-      <article class="post">
-        <header>
-          <img class="post__img" src="#" alt="">
-          <h4 class= "post__username">Keyvan</h4>
-          <h4 class="post__userHandle">@keyvanzz</h4>
-        </header>
-        <span class="post__body">Don't let someone dim your light simply because it's shining in their eyes! &#128526;</span>
-        <footer class="post__footer">
-          <h4 class="post__timestamp"> 2 days ago</h4>
-          <div class="post_icons">
-            <a href="#"><i class="fa fa-flag"></i></a>
-            <a href="#"><i class="fa fa-heart"></i></a>
-            <a href="#"><i class="fa fa-refresh"></i></a>
-          </div>
-        </footer>
-      </article>
-    </div>
+  <div class="review-container">
+    <article class="review">
+      <header class="review-header">
+        <img class="review-img" src="./images/profile-hex.png" alt="">
+        <h4 class= "review-username">Keyvan</h4>
+        <h4 class="review-userHandle">@keyvanzz</h4>
+      </header>
+      <span class="review-body">Don't let someone dim your light simply because it's shining in their eyes! &#128526;</span>
+      <footer class="review-footer">
+        <h4 class="review-timestamp"> 2 days ago</h4>
+        <div class="review-icons">
+          <a href="#"><i class="fa fa-flag"></i></a>
+          <a href="#"><i class="fa fa-heart"></i></a>
+          <a href="#"><i class="fa fa-refresh"></i></a>
+        </div>
+      </footer>
+    </article>
+  </div>
 </body>
 </html>

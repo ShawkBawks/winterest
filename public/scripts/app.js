@@ -46,4 +46,8 @@ $(document).ready(function () {
 
   //   `)
   // }
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature_article_view
 });
