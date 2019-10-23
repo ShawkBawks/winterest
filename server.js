@@ -127,7 +127,6 @@ app.post("/register", (req, res) => {
  });
 
  app.post("/newArticles", (req, res) => {
-<<<<<<< HEAD
    let userID = findUserID(req.session.user_id).then(result => {
      console.log("POST NEW ARTZZZZ:",result)
      addArticle(req.body, result).then(()=>{
@@ -147,7 +146,7 @@ app.get("/viewArticle/:id", (req, res) => {
     let templateVars = {user: req.session.user_id, article};
     res.render("viewArticle", templateVars)
   });
-=======
+
   let userID = findUserID(req.session.user_id).then(result => {
     return result;
   })
@@ -164,7 +163,6 @@ app.get("/viewArticle/:id", (req, res) => {
 app.get("/viewArticle", (req, res) => {
     let templateVars = {user: req.session.user_id};
   res.render("viewArticle", templateVars)
->>>>>>> feature_profile_page
 });
 
 function authenticateUser(username, password){
@@ -200,30 +198,9 @@ const addUser =  function(user) {
   .then(res => res.rows[0]);
 }
 
-<<<<<<< HEAD
-const addArticle = function(article, userID) {
-  console.log('addArticle was called kek: %&%&%&%&%&%&%&%')
-  console.log(userID)
-  // console.log(article)
-  // console.log(article.title)
-=======
-const findUserID = function(username) {
- return db.query(`SELECT id FROM users WHERE username = '${username}';`)
- .then((res) => {
-  console.log("LMFAO%*%*%*%*%*%*%*%*%*%*%*%*")
-  // console.log(res.rows[0].id)
-  let show = res.rows[0].id;
-  return show;
-})
-.catch(error => console.log(error))
-};
-
 
 const addArticle = function(article, userID) {
   console.log('addArticle was called kek:', userID)
-
-
->>>>>>> feature_profile_page
   return db.query(`INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id) VALUES
   ('${article.title}', '${article.description}', '${article.thumbnail}', '${article.url}', '${article.topic}', now(), '${userID}');
   `)
