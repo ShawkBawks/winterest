@@ -6,7 +6,7 @@ INSERT INTO article_reviews (comment, rating, article_id, user_id)
 
 
 INSERT INTO article_reviews (comment, rating, article_id, user_id)
- VALUES ('I mean, its alright...This is the most mediocre comment I have ever seen!', 3, 4 , 1);
+ VALUES ('I mean, its alright...This is the most mediocre comment I have ever seen!', 3, 1 , 1);
 
 
  INSERT INTO article_reviews (comment, rating, article_id, user_id)
