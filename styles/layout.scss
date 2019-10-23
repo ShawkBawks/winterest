@@ -74,3 +74,17 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 }
+
+.item:hover {
+  text-decoration: none;
+}
+
+.item-a:link {
+  text-decoration: none !important;
+  color: #374046 !important;
+}
+
+.item-a:visited {
+  text-decoration: none !important;
+  color: #374046 !important;
+}

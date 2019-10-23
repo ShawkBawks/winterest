@@ -7,17 +7,16 @@ $(document).ready(function () {
     $.get('/articles', function(res){
     renderArticles(res);
     //  res = articles.articles;
-    resizeAllGridItems();
     // console.log(res)
     //  console.log(articles)
-
+    resizeAllGridItems();
     })
   };
 
   // grid render
   let renderArticles = (articles) => {
+    resizeAllGridItems();
     // // articles = JSON.parse(articles)
-    console.log(articles.articles[0])
     articles = articles.articles;
     $('.grid').empty();
     for (let article in articles){
@@ -39,19 +38,22 @@ $(document).ready(function () {
   // }
 
   let createArticleTile = function(article) {
+    console.log(article.topic);
     let date = new Date(article.post_date).toDateString();
+    resizeAllGridItems();
     let $article = (`
-    <div class="item blog">
-    <div class="content">
-      <div class="title">
-        <h3>${article.title}</h3>
+    <div class="item blog" >
+      <div class="content" class="mask flex-center">
+      <a class="item-a" method="GET" href="/viewArticle/${article.id}">
+        <div class="title">
+         <h3>${article.title}</h3>
       </div>
-      <img src="${article.thumbnail}" class="photothumb">
+        <img src="${article.thumbnail}" class="photothumb">
       <div class="desc">
         <p>${article.description}</p>
       </div>
       <div class="article_link">
-          <a target="_blank" href="${article.url}">Link</a>
+        <a target="_blank" href="${article.url}">Link</a>
       </div>
       <div class="article_date">
         post_date: ${date}
@@ -60,7 +62,7 @@ $(document).ready(function () {
         topic: ${article.topic}
       </div>
     </div>
-  </div>
+    </a>
     `);
   return $article;
   };

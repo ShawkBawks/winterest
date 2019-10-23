@@ -119,14 +119,25 @@ app.post("/register", (req, res) => {
  });
 
  app.post("/newArticles", (req, res) => {
-   addArticle(req.body)
-  //  req.session.user_id = req.body.username;
-   res.redirect('/')
+   let userID = findUserID(req.session.user_id).then(result => {
+     console.log("POST NEW ARTZZZZ:",result)
+     addArticle(req.body, result).then(()=>{
+      res.redirect('/')
+     })
+   })
  });
 
-app.get("/viewArticle", (req, res) => {
-    let templateVars = {user: req.session.user_id};
-  res.render("viewArticle", templateVars)
+app.get("/viewArticle/:id", (req, res) => {
+  const article_id = req.params.id;
+  // console.log(article_id.title)
+  return db.query(`Select * from articles where id = ${article_id}`)
+  .then((result)=>{
+    // console.log("arian test")
+    // console.log(result.rows[0])
+    let article = result.rows[0];
+    let templateVars = {user: req.session.user_id, article};
+    res.render("viewArticle", templateVars)
+  });
 });
 
 function authenticateUser(username, password){
@@ -162,15 +173,24 @@ const addUser =  function(user) {
   .then(res => res.rows[0]);
 }
 
-const addArticle = function(article) {
-  console.log('addArticle was called kek:')
-  console.log(article)
-  console.log(article.title)
-  return db.query(`INSERT INTO articles (title, description, thumbnail, url, topic, post_date) VALUES
-  ('${article.title}', '${article.description}', '${article.thumbnail}', '${article.url}', '${article.topic}', now());
+const addArticle = function(article, userID) {
+  console.log('addArticle was called kek: %&%&%&%&%&%&%&%')
+  console.log(userID)
+  // console.log(article)
+  // console.log(article.title)
+  return db.query(`INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id) VALUES
+  ('${article.title}', '${article.description}', '${article.thumbnail}', '${article.url}', '${article.topic}', now(), '${userID}');
   `)
   .then(res => res.rows[0]);
 }
+
+const findUserID = function(username) {
+  return db.query(`SELECT id FROM users WHERE username = '${username}';`)
+  .then((res) => {
+    console.log('findUserID HAS BEEN RUN #$%&#$%&#$%&#$%&',res.rows[0].id)
+    return res.rows[0].id
+  })
+};
 
 function generateRandomString() {
   Math.random().toString(36).slice(-6);
