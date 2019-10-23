@@ -17,7 +17,6 @@ $(document).ready(function () {
   let renderArticles = (articles) => {
     resizeAllGridItems();
     // // articles = JSON.parse(articles)
-    console.log(articles.articles[0])
     articles = articles.articles;
     $('.grid').empty();
     for (let article in articles){
@@ -39,12 +38,13 @@ $(document).ready(function () {
   // }
 
   let createArticleTile = function(article) {
+    console.log(article.topic);
     let date = new Date(article.post_date).toDateString();
     resizeAllGridItems();
     let $article = (`
-    <div class="item blog" class="view overlay zoom" >
+    <div class="item blog" >
       <div class="content" class="mask flex-center">
-      <a method="GET" href="/viewArticle/${article.id}">
+      <a class="item-a" method="GET" href="/viewArticle/${article.id}">
         <div class="title">
          <h3>${article.title}</h3>
       </div>
