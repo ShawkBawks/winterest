@@ -46,10 +46,4 @@ $(document).ready(function () {
 
   //   `)
   // }
-
-  $('.article__comments-button').click( () => {
-    $('.article__comments-container').slideToggle('slow');
-    $('.article__comment').focus();
-  });
-
 });

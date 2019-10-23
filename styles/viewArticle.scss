@@ -1,10 +1,14 @@
-.article {
+.body {
   background: lemonchiffon;
+}
+
+.article {
   display: flex;
   flex-direction: column;
 
   &__title-container {
-    padding-left: 1rem;
+    padding-left: 1.2rem;
+    margin-top: 5rem;
   }
 
   &__title-header {}
@@ -82,7 +86,7 @@
 
   &__submission-text {
     font-weight: 700;
-    font-size: 150%;
+    font-size: 175%;
   }
 
   &__submission-icon{
@@ -92,7 +96,7 @@
   }
 
   &__comments-container{
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   &__error-message{
@@ -110,6 +114,7 @@
     background: transparent;
     border: 0px solid;
     border-bottom: 2px solid rgb(84,81,108);
+
     width: 100%;
     outline: none;
     resize: none;
@@ -141,5 +146,23 @@
     color: black;
     font-weight: 700;
   }
+}
 
+.post-container{}
+
+.post{
+
+  &__img{}
+
+  &__username{}
+
+  &__userHandle{}
+
+  &__body{}
+
+  &__footer{}
+
+  &__timestamp{}
+
+  &__icons{}
 }
