@@ -5,6 +5,7 @@
 .article {
   display: flex;
   flex-direction: column;
+  padding-top: 3%;
 
   &__title-container {
     padding-left: 1.2rem;
@@ -147,3 +148,27 @@
     font-weight: 700;
   }
 }
+<<<<<<< HEAD
+=======
+
+.post-container{}
+
+.post{
+
+  &__img{}
+
+  &__username{}
+
+  &__userHandle{}
+
+  &__body{}
+
+  &__footer{}
+
+  &__timestamp{}
+
+  &__icons{}
+
+
+}
+>>>>>>> e07ee5b49a3058692c322ff83ef7ba9912301ac7

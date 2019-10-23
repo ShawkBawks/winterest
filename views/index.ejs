@@ -1,58 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
-
+    <title>Winterest</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav-bar.css" type="text/css" />
     <link rel="stylesheet" href="/styles/grid.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="/styles/grid-labs.css" type="text/css" /> -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/grid-render.js"></script>
     <script type="text/javascript" src="/scripts/grid.js"></script>
-    <!-- Latest compiled and minified CSS -->
-
-    <!-- bootystrappy -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.1/web-animations.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <header><% include partials/_header.ejs %></header>
   <body>
     <div class="container-fluid">
-      <!-- GRID BODY  -->
-      <div class="grid">
-        <!-- ITEM START (HARDCODED EXAMPLE) -->
-        <div class="item blog">
-          <div class="content">
-            <div class="title">
-              <h3>1: Best Banana Bread Around</h3>
-            </div>
-              <img src="https://assets.bonappetit.com/photos/57ad371b53e63daf11a4dcfc/16:9/w_1200,c_limit/banana-bread-1-of-1.jpg" class="photothumb">
-            <div class="desc">
-              <p>This banana bread blew away all other recipes I have tried.</p>
-            </div>
-            <div class="article_link">
-              <a href="https://www.bonappetit.com/recipe/banana-bread">Link</a>
-            </div>
-            <div class="article_date">
-              post_date: 2019-10-18
-            </div>
-            <div>
-              topic: food
-            </div>
+        <div class="filter filter-basic">
+          <div class="filter-nav">
+            <button class="btn btn-success active" onclick="filterSelection('all')">All</button>
+            <button class="btn btn-primary" onclick="filterSelection('Outdoors')">Outdoors</button>
+            <button class="btn btn-primary" onclick="filterSelection('Food & Beverage')">Food & Beverage</button>
+            <button class="btn btn-primary" onclick="filterSelection('Home Improvement')">Home Improvement</button>
+            <button class="btn btn-primary" onclick="filterSelection('Workplace Development')">Workplace</button>
+            <button class="btn btn-primary" onclick="filterSelection('Personal Development')">Personal</button>
+            <button class="btn btn-primary" onclick="filterSelection('Animals')">Animals</button>
+            <button class="btn btn-primary" onclick="filterSelection('Heath & Fitness')">Health & Fitness</button>
+            <button class="btn btn-primary" onclick="filterSelection('Technology')">Technology</button>
+          </div>
+          <div class="filter-gallery">
+              <div class="grid"></div>
           </div>
         </div>
-      </div>
+    </div>
   </body>
 </html>
 
