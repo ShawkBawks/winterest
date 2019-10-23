@@ -1,4 +1,4 @@
-//load .env data into process.env
+// load .env data into process.env
 require('dotenv').config();
 
 // Web server config
@@ -201,4 +201,3 @@ function generateRandomString() {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-

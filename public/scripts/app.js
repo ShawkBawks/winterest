@@ -100,8 +100,10 @@ $(document).ready(function () {
 
   //   `)
   // }
-<<<<<<< HEAD
-=======
 
->>>>>>> feature_article_view
+  $('.article__comments-button').click( () => {
+    $('.article__comments-container').slideToggle('slow');
+    $('.article__comment').focus();
+  });
+
 });
