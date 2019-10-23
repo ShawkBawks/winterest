@@ -1,4 +1,4 @@
-// load .env data into process.env
+//load .env data into process.env
 require('dotenv').config();
 
 // Web server config
@@ -20,7 +20,8 @@ db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
-//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+//         The :status token will be colored red for server error codes, 
+//          yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 // app.use(cookie-bodyParser())
 // app.use(cookieParser()) lolzzzz
@@ -58,14 +59,6 @@ app.use("/articles", articlesRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  // console.log("testtestesteststestestest^&^&^&^&&^&&")
-  // findUserID(req.session.user_id).then(result => {
-  //   console.log("This is the result" + result);
-  // })
-  console.log("test func",findUserID(req.session.user_id));
-  // console.log("test req.session",req.session)
-  // console.log("test blah.user_id",req.session.user_id)
-  // console.log(userToID(req.session.user_id))
   let templateVars = {user: req.session.user_id};
   res.render("index", templateVars)
 });
@@ -182,14 +175,14 @@ const addUser =  function(user) {
 }
 
 const addArticle = function(article, userID) {
-  console.log('addArticle was called kek:', userID)
-
-
+  console.log('addArticle was called kek: %&%&%&%&%&%&%&%')
+  console.log(userID)
+  // console.log(article)
+  // console.log(article.title)
   return db.query(`INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id) VALUES
   ('${article.title}', '${article.description}', '${article.thumbnail}', '${article.url}', '${article.topic}', now(), '${userID}');
   `)
-  .then(res => res.rows[0])
-  .catch(error => console.log(error));
+  .then(res => res.rows[0]);
 }
 
 const findUserID = function(username) {
@@ -208,3 +201,4 @@ function generateRandomString() {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
