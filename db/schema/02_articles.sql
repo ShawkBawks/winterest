@@ -8,13 +8,8 @@ CREATE TABLE articles (
   url VARCHAR(500) NOT NULL,
   topic VARCHAR(50) NOT NULL,
   post_date DATE,
-<<<<<<< HEAD
-  -- likes BOOLEAN NOT NULL DEFAULT FALSE,
-  author_id INTEGER REFERENCES users(id) ON DELETE CASCADE
-=======
   author_id INTEGER REFERENCES users(id) ON DELETE CASCADE
   -- likes BOOLEAN NOT NULL DEFAULT FALSE,
->>>>>>> feature_profile_page
 );
 
 
