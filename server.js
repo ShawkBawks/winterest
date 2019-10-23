@@ -58,6 +58,14 @@ app.use("/articles", articlesRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
+  // console.log("testtestesteststestestest^&^&^&^&&^&&")
+  // findUserID(req.session.user_id).then(result => {
+  //   console.log("This is the result" + result);
+  // })
+  console.log("test func",findUserID(req.session.user_id));
+  // console.log("test req.session",req.session)
+  // console.log("test blah.user_id",req.session.user_id)
+  // console.log(userToID(req.session.user_id))
   let templateVars = {user: req.session.user_id};
   res.render("index", templateVars)
 });
@@ -119,6 +127,7 @@ app.post("/register", (req, res) => {
  });
 
  app.post("/newArticles", (req, res) => {
+<<<<<<< HEAD
    let userID = findUserID(req.session.user_id).then(result => {
      console.log("POST NEW ARTZZZZ:",result)
      addArticle(req.body, result).then(()=>{
@@ -138,6 +147,24 @@ app.get("/viewArticle/:id", (req, res) => {
     let templateVars = {user: req.session.user_id, article};
     res.render("viewArticle", templateVars)
   });
+=======
+  let userID = findUserID(req.session.user_id).then(result => {
+    return result;
+  })
+   addArticle(req.body, userID)
+  //  req.session.user_id = req.body.username;
+   res.redirect('/')
+ });
+
+ app.get("/profile", (req, res) => {
+  let templateVars = {user: req.session.user_id};
+  res.render("profile", templateVars)
+});
+
+app.get("/viewArticle", (req, res) => {
+    let templateVars = {user: req.session.user_id};
+  res.render("viewArticle", templateVars)
+>>>>>>> feature_profile_page
 });
 
 function authenticateUser(username, password){
@@ -173,15 +200,35 @@ const addUser =  function(user) {
   .then(res => res.rows[0]);
 }
 
+<<<<<<< HEAD
 const addArticle = function(article, userID) {
   console.log('addArticle was called kek: %&%&%&%&%&%&%&%')
   console.log(userID)
   // console.log(article)
   // console.log(article.title)
+=======
+const findUserID = function(username) {
+ return db.query(`SELECT id FROM users WHERE username = '${username}';`)
+ .then((res) => {
+  console.log("LMFAO%*%*%*%*%*%*%*%*%*%*%*%*")
+  // console.log(res.rows[0].id)
+  let show = res.rows[0].id;
+  return show;
+})
+.catch(error => console.log(error))
+};
+
+
+const addArticle = function(article, userID) {
+  console.log('addArticle was called kek:', userID)
+
+
+>>>>>>> feature_profile_page
   return db.query(`INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id) VALUES
   ('${article.title}', '${article.description}', '${article.thumbnail}', '${article.url}', '${article.topic}', now(), '${userID}');
   `)
-  .then(res => res.rows[0]);
+  .then(res => res.rows[0])
+  .catch(error => console.log(error));
 }
 
 const findUserID = function(username) {
