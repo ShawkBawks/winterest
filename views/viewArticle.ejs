@@ -9,13 +9,16 @@
     <link rel="stylesheet" href="/styles/nav-bar.css" type="text/css" />
     <link rel="stylesheet" href="/styles/grid.css" type="text/css" />
     <link rel="stylesheet" href="/styles/viewArticle.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/articleReviews.css" type="text/css" />
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/viewArticle.js"></script>
+
 </head>
 <header><% include partials/_header.ejs %></header>
-<body>
+<body class="body">
     <article class="article">
         <div class="article__title-container">
             <h1 class="article__title-header"><%= article.title %></h1>
@@ -48,7 +51,7 @@
           </button>
           <section class="article__comments-container">
             <div class="article__error-message"></div>
-            <form action="article__comments-form">
+            <form method="" action="" class="article__comments-form">
                 <textarea class="article__comment" rows= "1" name="text" placeholder="What are you humming about?"></textarea>
                 <input class="article__comment--submission" type="submit" value="Post">
                 <span class="article__comment--counter">140</span>
