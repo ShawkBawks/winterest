@@ -1,5 +1,8 @@
-.article {
+.body{
   background: lemonchiffon;
+}
+
+.article {
   display: flex;
   flex-direction: column;
 
@@ -82,7 +85,7 @@
 
   &__submission-text {
     font-weight: 700;
-    font-size: 150%;
+    font-size: 175%;
   }
 
   &__submission-icon{
