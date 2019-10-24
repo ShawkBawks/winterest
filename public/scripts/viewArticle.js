@@ -44,10 +44,6 @@ $(document).ready(function () {
     }
   }
 
-  const escape =  function(str) {
-    let div = $("<div>").text(str);
-    return div[0].innerHTML;
-  }
 
   const createArticleReview = function(articleReview) {
     let date = new Date(articleReview.created_at).toDateString();
@@ -56,7 +52,7 @@ $(document).ready(function () {
       <header class="review-header">
         <h4 class= "review-username">${tweet.user.name}</h4>
       </header>
-      <span class="review-body">${escape(tweet.content.text)}</span>
+      <span class="review-body">${tweet.content.text}</span>
       <footer class="review-footer">
         <h4 class="review-timestamp">${date}</h4>
         <div class="review-icons">
