@@ -44,12 +44,14 @@ app.use(cookieSession({
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const articlesRoutes = require("./routes/articles");
-const newArticlesRoutes = require("./routes/newArticles");
+const myArticlesRoutes = require("./routes/my-articles-query");
+// const newArticlesRoutes = require("./routes/newArticlesRoutesrticles");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/users", usersRoutes(db));
 app.use("/articles", articlesRoutes(db));
+app.use("/my-articles-query", myArticlesRoutes(db));
 // app.use("/newArticles", newArticlesRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
@@ -66,9 +68,13 @@ app.get("/profile", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  console.log("test func",findUserID(req.session.user_id));
-  let templateVars = {user: req.session.user_id};
+  let templateVars = {user: req.session.user_id , filter: 'articles'};
   res.render("index", templateVars)
+});
+
+app.get("/my-articles", (req, res) => {
+  let templateVars = {user: req.session.user_id, filter: 'my-articles'};
+  res.render("my-articles", templateVars)
 });
 
 app.get("/newArticles", (req, res) => {
@@ -76,50 +82,31 @@ app.get("/newArticles", (req, res) => {
   res.render("addArticle", templateVars)
 });
 
-//logout
 app.post('/logout', (req, res) => {
   req.session = null;
   res.redirect("/")
 })
-//load login page
+
 app.get("/login", (req, res) => {
-  console.log(db)
   let templateVars = {user: req.session.user_id};
   res.render("login", templateVars)
 });
-//req.session = null;
-app.post('/login', (req, res) => {
-  // console.log(req.body.username);
-  // console.log(req.body.password);
 
-  const userCheck = authenticateUser(req.body.username, req.body.password)
-  .then(user => {
+app.post('/login', (req, res) => {
+  const userCheck = authenticateUser(req.body.username, req.body.password).then(user => {
     if(user){
-      // console.log("Successfully authenticated");
-      // let cookVal = generateRandomString();
       req.session.user_id = req.body.username;
       res.redirect('/')
     } else{
       res.status(403).send("bad login")
     }
   })
-
-  //console.log(req.body)
-  //console.log(users)
-
-
-  //1. To the username from the body as well as the password
-  //2. Create a function to which we will pass this username and password
-  //3. The function then checks with a query to the database like "
-  //4 Select * from users where username = "+username and password = "password"
-  //5 if you get something or the count of return of rows is 1? //then you say all good with the login
-  //6 else if there was no return of the user row or count == 0 then give message, please check your username and password
 });
 
 //json
 app.get('/users', function(res){
-console.log(res)
-  })
+  console.log(res)
+})
 
 app.post("/register", (req, res) => {
   addUser(req.body)
@@ -129,12 +116,12 @@ app.post("/register", (req, res) => {
 
  app.post("/newArticles", (req, res) => {
   let userID = findUserID(req.session.user_id).then(result => {
-    return result;
+    addArticle(req.body, result).then(()=>{
+     res.redirect('/')
+    })
   })
-   addArticle(req.body, userID)
-   //  req.session.user_id = req.body.username;
-   res.redirect('/')
-  });
+});
+
   // db.query(`UPDATE users SET username = '${req.body.username}', email = '${req.body.email}', profile_picture = '${req.body.profile_picture}' WHERE id = '${userID}';`)
   app.post('/profile', (req, res) => {
     let userID = findUserID(req.session.user_id).then(result => {
@@ -147,44 +134,23 @@ db.query(`UPDATE users SET password = '${req.body.password}', email = '${req.bod
     console.log(req.body.profile_picture);
   });
 
+
 app.get("/viewArticle/:id", (req, res) => {
   const article_id = req.params.id;
-  // console.log(article_id.title)
   return db.query(`Select * from articles where id = ${article_id}`)
   .then((result)=>{
-    // console.log("arian test")
-    // console.log(result.rows[0])
     let article = result.rows[0];
     let templateVars = {user: req.session.user_id, article};
     res.render("viewArticle", templateVars)
   });
 });
-
 function authenticateUser(username, password){
   return db.query("Select id, username, email from users where username = '"+username+"' and password='"+password+"'")
   .then((result)=>{
-    console.log(result.rows);
-    console.log(result.rows.length);
     return result.rows[0];
   });
 }
-
-// app.get('/users', dbQueries.getUsers);
-// app.get('/users/:id', dbQueries.getUserById);
-// app.post('/users', dbQueries.createUser);
-// app.put('/users/:id', dbQueries.updateUser);
-// app.delete('/users/:id', dbQueries.deleteUser);
-// app.get('/articles', dbQueries.getArticles);
-// app.get('/articles/:id', dbQueries.getArticlesById);
-// app.post('/newArticles', dbQueries.createArticle);
-// app.delete('/articles/:id', dbQueries.deleteArticle);
-
-
-//database lolz
 const addUser =  function(user) {
-  console.log('addUser got called lmfao:')
-  console.log(user)
-  console.log(user.password)
   return db.query(`INSERT INTO users (
     username, email, password, profile_picture)
   VALUES (
@@ -194,10 +160,6 @@ const addUser =  function(user) {
 }
 
 const addArticle = function(article, userID) {
-  console.log('addArticle was called kek: %&%&%&%&%&%&%&%')
-  console.log(userID)
-  // console.log(article)
-  // console.log(article.title)
   return db.query(`INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id) VALUES
   ('${article.title}', '${article.description}', '${article.thumbnail}', '${article.url}', '${article.topic}', now(), '${userID}');
   `)
@@ -207,16 +169,14 @@ const addArticle = function(article, userID) {
 const findUserID = function(username) {
   return db.query(`SELECT id FROM users WHERE username = '${username}';`)
   .then((res) => {
-    console.log('findUserID HAS BEEN RUN #$%&#$%&#$%&#$%&',res.rows[0].id)
     return res.rows[0].id
   })
 };
-
+module.export = findUserID;
 function generateRandomString() {
   Math.random().toString(36).slice(-6);
   return Math.random().toString(36).slice(-6);
  };
-
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

@@ -26,7 +26,6 @@ module.exports = (db) => {
   return router;
 };
 
-
 // const getArticles = (request, response) => {
 //   db.query('SELECT * FROM articles ORDER BY id ASC', (error, results) => {
 //     if (error) {
