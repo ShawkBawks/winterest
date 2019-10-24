@@ -95,8 +95,8 @@ $(document).ready(function () {
     renderArticles(res);
     //  res = articles.articles;
     // console.log(res)
-     console.log(articles)
-    // resizeAllGridItems();
+     // console.log(articles)
+    resizeAllGridItems();
     })
   };
 
@@ -128,7 +128,6 @@ $(document).ready(function () {
     // console.log(article.topic);
     let date = new Date(article.post_date).toDateString();
     resizeAllGridItems();
-
     let $article = (`
     <div class="item blog" datatopic=${article.topic}>
       <div class="content" class="mask flex-center">
@@ -148,6 +147,7 @@ $(document).ready(function () {
     `);
   return $article;
   };
-    resizeAllGridItems();
-    loadArticles();
+  loadArticles();
+  resizeAllGridItems();
+    
 })
