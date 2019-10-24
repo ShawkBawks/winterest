@@ -23,36 +23,40 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.1/web-animations.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <header><% include partials/_header.ejs %></header>
   <body>
     <div class="container-fluid">
-      <!-- GRID BODY  -->
-      <div class="grid">
-        <!-- ITEM START (HARDCODED EXAMPLE) -->
-        <div class="item blog">
-          <div class="content">
-            <div class="title">
-              <h3>1: Best Banana Bread Around</h3>
-            </div>
-              <img src="https://assets.bonappetit.com/photos/57ad371b53e63daf11a4dcfc/16:9/w_1200,c_limit/banana-bread-1-of-1.jpg" class="photothumb">
-            <div class="desc">
-              <p>This banana bread blew away all other recipes I have tried.</p>
-            </div>
-            <div class="article_link">
-              <a href="https://www.bonappetit.com/recipe/banana-bread">Link</a>
-            </div>
-            <div class="article_date">
-              post_date: 2019-10-18
-            </div>
-            <div>
-              topic: food
-            </div>
+        <div class="">
+            <h2>Filtering divs</h2>
           </div>
-        </div>
-      </div>
+        <!-- <div class="filter filter-basic"> -->
+          <!-- <div class="filter-nav"> -->
+            <div>
+            <button class="btn btn-primary filter-button" data-filter ="all">All</button>
+            <button class="btn btn-primary filter-button" data-filter ="Outdoors">Outdoors</button>
+            <button class="btn btn-primary filter-button" data-filter ="Food">Food</button>
+            <button class="btn btn-primary filter-button" data-filter ="Household">Household</button>
+            <button class="btn btn-primary filter-button" data-filter ="Workplace">Workplace</button>
+            <button class="btn btn-primary filter-button" data-filter ="Personal">Personal</button>
+            <button class="btn btn-primary filter-button" data-filter ="Animals">Animals</button>
+            <button class="btn btn-primary filter-button" data-filter ="Fitness">Fitness</button>
+            <button class="btn btn-primary filter-button" data-filter ="Technology">Technology</button>
+          </div>
+          <div class="filter-gallery">
+              <div class="grid"></div>
+          </div>
+        <!-- </div> -->
+    </div>
   </body>
 </html>
 

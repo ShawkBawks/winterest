@@ -57,15 +57,16 @@ app.use("/articles", articlesRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+app.get("/profile", (req, res) => {
+  db.query(`SELECT * FROM users WHERE username = '${req.session.user_id}'`).then(result => {
+    userInfo= result.rows[0];
+    let templateVars = {user: req.session.user_id, userInfo}
+    res.render("profile", templateVars)
+  })
+});
+
 app.get("/", (req, res) => {
-  // console.log("testtestesteststestestest^&^&^&^&&^&&")
-  // findUserID(req.session.user_id).then(result => {
-  //   console.log("This is the result" + result);
-  // })
   console.log("test func",findUserID(req.session.user_id));
-  // console.log("test req.session",req.session)
-  // console.log("test blah.user_id",req.session.user_id)
-  // console.log(userToID(req.session.user_id))
   let templateVars = {user: req.session.user_id};
   res.render("index", templateVars)
 });
@@ -131,9 +132,20 @@ app.post("/register", (req, res) => {
     return result;
   })
    addArticle(req.body, userID)
-  //  req.session.user_id = req.body.username;
+   //  req.session.user_id = req.body.username;
    res.redirect('/')
- });
+  });
+  // db.query(`UPDATE users SET username = '${req.body.username}', email = '${req.body.email}', profile_picture = '${req.body.profile_picture}' WHERE id = '${userID}';`)
+  app.post('/profile', (req, res) => {
+    let userID = findUserID(req.session.user_id).then(result => {
+      console.log('IS THIS WORKING')
+db.query(`UPDATE users SET password = '${req.body.password}', email = '${req.body.email}', profile_picture = '${req.body.profile_picture}' WHERE id = '${result}';`)    }).then(result2 => res.redirect('./profile'))
+    // res.redirect('/profile')
+    console.log('testtest')
+    console.log(req.body.password);
+    console.log(req.body.email);
+    console.log(req.body.profile_picture);
+  });
 
  app.get("/profile", (req, res) => {
   let templateVars = {user: req.session.user_id};
@@ -188,7 +200,11 @@ const findUserID = function(username) {
 })
 .catch(error => console.log(error))
 };
+// const updateUser = function(req) {
 
+//   `)
+//   .then(res => res.rows[0])
+// }
 
 const addArticle = function(article, userID) {
   console.log('addArticle was called kek:', userID)

@@ -41,10 +41,11 @@ $(document).ready(function () {
   let createArticleTile = function(article) {
     let date = new Date(article.post_date).toDateString();
     let $article = (`
-    <div class="item blog">
-    <div class="content">
-      <div class="title">
-        <h3>${article.title}</h3>
+    <div class="item blog" >
+      <div class="content" class="mask flex-center" class="${article.topic}">
+      <a class="item-a" method="GET" href="/viewArticle/${article.id}">
+        <div class="title">
+         <h3>${article.title}</h3>
       </div>
       <img src="${article.thumbnail}" class="photothumb">
       <div class="desc">
