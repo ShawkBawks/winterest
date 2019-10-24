@@ -27,8 +27,7 @@
   </head>
   <header><% include partials/_header.ejs %></header>
   <body>
-    <div class="container-fluid">
-        <div class="filter filter-basic">
+    <div class="container-fluid myArt">
           <div class="filter-nav">
             <button id="all-btn" class="btn btn-success active" onclick="test()">All</button>
             <button id="all-outdoors" class="btn btn-primary">Outdoors</button>
@@ -40,11 +39,10 @@
             <button id="all-fitness" class="btn btn-primary">Fitness</button>
             <button id="all-technology" class="btn btn-primary">Technology</button>
           </div>
-          <div class="filter-gallery" data-filter="/<%=filter%>">
+          <div class="filter-gallery" data-filter="/my-articles-query/<%=filter%>">
               <div class="grid"></div>
           </div>
         </div>
     </div>
   </body>
 </html>
-
