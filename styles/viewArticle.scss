@@ -1,7 +1,10 @@
-.article {
+.body {
   background: lemonchiffon;
+}
+.article {
   display: flex;
   flex-direction: column;
+  padding-top: 3%;
 
   &__title-container {
     padding-left: 1rem;
@@ -141,5 +144,7 @@
     color: black;
     font-weight: 700;
   }
+
+
 
 }

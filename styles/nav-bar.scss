@@ -13,7 +13,7 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: white !important;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -21,6 +21,7 @@ li a {
 
 li a:hover {
   background-color: #111;
+  text-decoration: none;
 }
 
 .active:hover {
@@ -39,4 +40,12 @@ li a:hover {
 
 .drop-filter {
   padding: inherit 0;
+}
+
+.filter {
+  padding-top: 3%;
+}
+
+.filter li {
+  background-color: black;
 }
