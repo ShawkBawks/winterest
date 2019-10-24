@@ -30,7 +30,7 @@ $(document).ready(function () {
   //   }
   // });
 
-  const loadComments = () => {
+  /*const loadComments = () => {
     $.get("/viewArticle", function(res) {
       renderComments(res);
     })
@@ -68,6 +68,6 @@ $(document).ready(function () {
     </article>
     `);
     return articleReviews;
-  };
+  };*/
 
 })
