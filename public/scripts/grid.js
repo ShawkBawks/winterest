@@ -19,6 +19,7 @@ function resizeInstance(instance){
 }
 
 window.addEventListener("resize", resizeAllGridItems);
+// window.onload(resizeAllGridItems)
 
 allItems = document.getElementsByClassName("item");
 for(x=0;x<allItems.length;x++){

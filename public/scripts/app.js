@@ -65,7 +65,7 @@ $(document).ready(function () {
       }
     });;
   });
-
+});
 //   function readURL(input) {
 //     if (input.files && input.files[0]) {
 //         var reader = new FileReader();
@@ -99,11 +99,6 @@ $(document).ready(function () {
   //     ${articles.topic}
 
   //   `)
-  // }
+  //
 
-  $('.article__comments-button').click( () => {
-    $('.article__comments-container').slideToggle('slow');
-    $('.article__comment').focus();
-  });
 
-});

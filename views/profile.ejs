@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<title>Profile Page</title>
+
+<link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+<link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+<link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+<link rel="stylesheet" href="/styles/nav-bar.css" type="text/css" />
+<link rel="stylesheet" href="/styles/grid.css" type="text/css" />
+<!-- <link rel="stylesheet" href="/styles/viewArticle.css" type="text/css" /> -->
+<link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel="stylesheet" href="styles/profile.css" type="text/css" />
+
+<script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+<script type="text/javascript" src="/scripts/app.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<header><% include partials/_header.ejs %></header>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+
+<div class="container">
+  <div class="row login_box">
+    <div class="col-md-12 col-xs-12" align="center">
+      <div class="outter"><img src="<%=userInfo.profile_picture%>" class="image-circle" /></div>
+      <h1>Hello <%= user %></h1>
+      <h3>Email: <%= userInfo.email %></h3>
+
+    </div>
+    <div class="col-md-6 col-xs-6 follow line" align="center">
+      <h3>
+        125651 <br /> <span>LIKES</span>
+      </h3>
+    </div>
+    <div class="col-md-6 col-xs-6 follow line" align="center">
+      <h3>
+        125651 <br /> <span>ARTICLES</span>
+      </h3>
+    </div>
+
+    <div class="col-md-12 col-xs-12 login_control">
+      <div class="control">
+        <form action="/profile" method="POST">
+          <div class="label">Email Address</div>
+          <input name="email" type="email" class="form-control" placeholder="you@gmail.com" />
+      </div>
+
+      <div class="control">
+        <div class="label">Password</div>
+        <input name="password" type="password" class="form-control" placeholder="password" />
+      </div>
+
+      <div class="control">
+        <div class="label">Profile Picture URL</div>
+        <input name="profile_picture" type="text" class="form-control" placeholder="www.example.com" />
+      </div>
+
+      <div align="center">
+        <button input type="submit" class="btn btn-orange">UPDATE</button>
+      </div>
+      </form>
+    </div>
+
+
+
+  </div>
+</div>
+
+

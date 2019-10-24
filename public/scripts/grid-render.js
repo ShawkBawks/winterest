@@ -3,19 +3,106 @@ $(document).ready(function () {
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
   });
 
+  const test = function() {
+    alert('');
+    $.item.attr(topic)
+  };
+
+  $('#all-btn').click(function() {
+        $('.item').each(function(i, obj) {
+    let toCheck = $(obj).attr('datatopic');
+    $( this ).show();
+    });
+  });
+
+  $('#all-outdoors').click(function() {
+        $('.item').each(function(i, obj) {
+    let toCheck = $(obj).attr('datatopic');
+    $( this ).show();
+    if (toCheck != "Outdoors") {
+      $( this ).hide();
+     }
+    });
+  });
+  $('#all-food').click(function() {
+        $('.item').each(function(i, obj) {
+    let toCheck = $(obj).attr('datatopic');
+    $( this ).show();
+    if (toCheck != "Food") {
+      $( this ).hide();
+     }
+    });
+  });
+    $('#all-household').click(function() {
+        $('.item').each(function(i, obj) {
+    let toCheck = $(obj).attr('datatopic');
+    $( this ).show();
+    if (toCheck != "Household") {
+      $( this ).hide();
+     }
+    });
+  });
+
+      $('#all-workplace').click(function() {
+        $('.item').each(function(i, obj) {
+    let toCheck = $(obj).attr('datatopic');
+    $( this ).show();
+    if (toCheck != "Workplace") {
+      $( this ).hide();
+     }
+    });
+  });
+      $('#all-personal').click(function() {
+        $('.item').each(function(i, obj) {
+    let toCheck = $(obj).attr('datatopic');
+    $( this ).show();
+    if (toCheck != "Personal") {
+      $( this ).hide();
+     }
+    });
+  });
+      $('#all-animals').click(function() {
+        $('.item').each(function(i, obj) {
+    let toCheck = $(obj).attr('datatopic');
+    $( this ).show();
+    if (toCheck != "Animals") {
+      $( this ).hide();
+     }
+    });
+  });
+      $('#all-fitness').click(function() {
+        $('.item').each(function(i, obj) {
+    let toCheck = $(obj).attr('datatopic');
+    $( this ).show();
+    if (toCheck != "Fitness") {
+      $( this ).hide();
+     }
+    });
+  });
+      $('#all-technology').click(function() {
+        $('.item').each(function(i, obj) {
+    let toCheck = $(obj).attr('datatopic');
+    $( this ).show();
+    if (toCheck != "Technology") {
+      $( this ).hide();
+     }
+    });
+  });
   let loadArticles = () => {
-    $.get('/articles', function(res){
+    const filter = $('.filter-gallery').data('filter')
+    console.log(filter)
+    $.get(filter, function(res){
     renderArticles(res);
     //  res = articles.articles;
     // console.log(res)
-    //  console.log(articles)
+     // console.log(articles)
     resizeAllGridItems();
     })
   };
 
   // grid render
   let renderArticles = (articles) => {
-    resizeAllGridItems();
+    // resizeAllGridItems();
     // // articles = JSON.parse(articles)
     articles = articles.articles;
     $('.grid').empty();
@@ -38,11 +125,11 @@ $(document).ready(function () {
   // }
 
   let createArticleTile = function(article) {
-    console.log(article.topic);
+    // console.log(article.topic);
     let date = new Date(article.post_date).toDateString();
     resizeAllGridItems();
     let $article = (`
-    <div class="item blog" >
+    <div class="item blog" datatopic=${article.topic}>
       <div class="content" class="mask flex-center">
       <a class="item-a" method="GET" href="/viewArticle/${article.id}">
         <div class="title">
@@ -55,16 +142,12 @@ $(document).ready(function () {
       <div class="article_link">
         <a target="_blank" href="${article.url}">Link</a>
       </div>
-      <div class="article_date">
-        post_date: ${date}
-      </div>
-      <div>
-        topic: ${article.topic}
-      </div>
     </div>
     </a>
     `);
   return $article;
   };
-    loadArticles();
+  loadArticles();
+  resizeAllGridItems();
+    
 })
