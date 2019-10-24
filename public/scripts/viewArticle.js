@@ -11,24 +11,24 @@ $(document).ready(function () {
     $(this).val().length > 140 ? $('.article__comment--counter').css('color', 'red') : $('.article__comment--counter').css('color', '#545159');
   });
 
-  $(".article__comments-form").on('submit', function(event) {
-    event.preventDefault();
-    let commentBody = $(this).serialize();
-    console.log(commentBody);
-    if (!$('.article__comment').val()) {
-      $('.article__error-message').html('&#9888; Empty Post! please enter some chars to post. &#9888;').show().delay(3000).fadeOut();
-    }
-    if ($('.article__comment').val().length > 140) {
-      $('.article__error-message').html('&#9888; Too long! please respect our arbitrary limit of 140 chars. &#9888;').show().delay(3000).fadeOut();
-    } else {
-      $.ajax({
-        method: "POST",
-        url:"/viewArticle",
-        data: commentBody
-      })
-      .then(loadComments);
-    }
-  });
+  // $(".article__comments-form").on('submit', function(event) {
+  //   event.preventDefault();
+  //   let commentBody = $(this).serialize();
+  //   console.log(commentBody);
+  //   if (!$('.article__comment').val()) {
+  //     $('.article__error-message').html('&#9888; Empty Post! please enter some chars to post. &#9888;').show().delay(3000).fadeOut();
+  //   }
+  //   if ($('.article__comment').val().length > 140) {
+  //     $('.article__error-message').html('&#9888; Too long! please respect our arbitrary limit of 140 chars. &#9888;').show().delay(3000).fadeOut();
+  //   } else {
+  //     $.ajax({
+  //       method: "POST",
+  //       url:"/viewArticle",
+  //       data: commentBody
+  //     })
+  //     .then(loadComments);
+  //   }
+  // });
 
   const loadComments = () => {
     $.get("/viewArticle", function(res) {

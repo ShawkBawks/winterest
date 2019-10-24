@@ -129,15 +129,39 @@ app.post("/register", (req, res) => {
 
 app.get("/viewArticle/:id", (req, res) => {
   const article_id = req.params.id;
-  // console.log(article_id.title)
-  return db.query(`Select * from articles where id = ${article_id}`)
+  return db.query(`Select articles.id as "best_id",  * from articles LEFT JOIN article_reviews ON articles.id = article_reviews.article_id where articles.id = ${article_id}`)
   .then((result)=>{
-    // console.log("arian test")
-    // console.log(result.rows[0])
+    console.log(result.rows[0]);
     let article = result.rows[0];
     let templateVars = {user: req.session.user_id, article};
+    console.log(templateVars);
     res.render("viewArticle", templateVars)
   });
+});
+
+app.post("/viewArticle/:id", (req, res) => {
+  let userID = 0;
+  const articleID = req.params.id;
+  findUserID(req.session.user_id).then(result => {
+    userID = result;
+    console.log("POST NEW COMMENT:",userID, articleID)
+
+    return db.query(`INSERT INTO article_reviews (comment, rating, article_id, user_id) VALUES
+    ('${req.body.text}', '3', ${articleID}, ${userID.toString()});
+  ` ).then(async (data) => {
+    // res.redirect(`/viewArticle/${articleID}`);
+    console.log('what is data', data)
+    console.log("articleID to get coment", articleID)
+    const commentQuery = await db.query(`SELECT comment FROM articles LEFT JOIN article_reviews ON articles.id = article_reviews.article_id WHERE article_reviews.article_id = ${articleID}`);
+    console.log("db query ", commentQuery);
+    return commentQuery;
+
+    res.json()
+  })
+  }).catch(err => {
+    console.log("Error in getting userid: ", err);
+  });
+
 });
 
 function authenticateUser(username, password){

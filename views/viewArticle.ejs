@@ -51,7 +51,7 @@
           </button>
           <section class="article__comments-container">
             <div class="article__error-message"></div>
-            <form method="" action="" class="article__comments-form">
+            <form method="POST" action="/viewArticle/<%= article.best_id %>" class="article__comments-form">
                 <textarea class="article__comment" rows= "1" name="text" placeholder="What are you humming about?"></textarea>
                 <input class="article__comment--submission" type="submit" value="Post">
                 <span class="article__comment--counter">140</span>
@@ -64,9 +64,8 @@
           <header class="review-header">
             <img class="review-img" src="./images/profile-hex.png" alt="">
             <h4 class= "review-username">Keyvan</h4>
-            <h4 class="review-userHandle">@keyvanzz</h4>
           </header>
-          <span class="review-body">Don't let someone dim your light simply because it's shining in their eyes! &#128526;</span>
+          <span class="review-body"><%= article.comment %></span>
           <footer class="review-footer">
             <h4 class="review-timestamp"> 2 days ago</h4>
             <div class="review-icons">
