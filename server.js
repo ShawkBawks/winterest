@@ -133,7 +133,14 @@ db.query(`UPDATE users SET password = '${req.body.password}', email = '${req.bod
     console.log(req.body.email);
     console.log(req.body.profile_picture);
   });
+  app.post('/like', (req, res) => {
+    let userID = findUserID(req.session.user_id).then(result => {
+  db.query(`UPDATE articles SET author_id = '${result}`)
+  console.log(result)
+  .then(result2 => res.redirect('./myArticles'))
+    })
 
+  });
 
 app.get("/viewArticle/:id", (req, res) => {
   const article_id = req.params.id;
