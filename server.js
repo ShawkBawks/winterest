@@ -103,6 +103,13 @@ app.post('/login', (req, res) => {
   })
 });
 
+app.post('/like', (req, res) => {
+  console.log(req.params)
+  let userID = findUserID(req.session.user_id).then(result => {
+    db.query(`UPDATE articles SET author_id = '${result}' WHERE articles.id = `).then(result2 => res.redirect('./myArticles'))
+  })
+});
+
 //json
 app.get('/users', function(res){
   console.log(res)
@@ -134,6 +141,17 @@ db.query(`UPDATE users SET password = '${req.body.password}', email = '${req.bod
     console.log(req.body.profile_picture);
   });
 
+  app.post("/viewArticle/:id/like", (req, res) => {
+  const article_id = req.params.id;
+  findUserID(req.session.user_id).then(result => db.query(`UPDATE articles SET author_id = ${result} WHERE id = ${article_id}`).then( r => 
+    res.redirect("/my-articles"))
+    )
+  });
+
+//   app.post('/like')
+//   let userID = findUserID(req.session.user_id).then(result => {
+// db.query(`UPDATE articles SET author_id = '${result}' WHERE id = ${article_id}`).then(result2 => res.redirect('./myArticles'))
+//   });
 
 app.get("/viewArticle/:id", (req, res) => {
   const article_id = req.params.id;
@@ -141,7 +159,7 @@ app.get("/viewArticle/:id", (req, res) => {
   .then((result)=>{
     console.log(result.rows[0]);
     let article = result.rows[0];
-    let templateVars = {user: req.session.user_id, article};
+    let templateVars = {user: req.session.user_id, article_id, article};
     console.log(templateVars);
     res.render("viewArticle", templateVars)
   });
@@ -153,7 +171,6 @@ app.post("/viewArticle/:id", (req, res) => {
   findUserID(req.session.user_id).then(result => {
     userID = result;
     console.log("POST NEW COMMENT:",userID, articleID)
-
     return db.query(`INSERT INTO article_reviews (comment, rating, article_id, user_id) VALUES
     ('${req.body.text}', '3', ${articleID}, ${userID.toString()});
   ` ).then(async (data) => {
