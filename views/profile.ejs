@@ -1,50 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+    <div id="wrap">
+  <head>
+    <title>Winterest</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav-bar.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/grid.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/profile.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="/styles/grid-labs.css" type="text/css" /> -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/grid-render.js"></script>
+    <script type="text/javascript" src="/scripts/grid.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.1/web-animations.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<header><% include partials/_header.ejs %></header>
 
-
-
-
-<title>Profile Page</title>
-
-<link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-<link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-<link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-<link rel="stylesheet" href="/styles/nav-bar.css" type="text/css" />
-<link rel="stylesheet" href="/styles/grid.css" type="text/css" />
-<!-- <link rel="stylesheet" href="/styles/viewArticle.css" type="text" />/css -->
-<link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-<link rel="stylesheet" href="styles/profile.css" type="text/css" />
-
-<script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-<script type="text/javascript" src="/scripts/app.js"></script>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
-<header>
-    <nav class="navbar-fixed-top">
-      <ul>
-        <li><a class="nav-a" href="/">Home</a></li>
-      <div class="sign">
-        <% if(!locals.user){ %>
-          <li style="float:right"><a class="active2" class="login" href="/login"">Login/Register</a></li>
-        <% } else { %>
-          <li><a href="/my-articles">My Articles</a></li>
-          <li><a href="/newArticles">Add Articles</a></li>
-          <li style="float:right"><a href="/profile">Profile</a></li>
-          <li style="float:right">
-            <form method='POST' action='/logout' id='logout'>
-            <input type="submit" class="active" value="Logout" class="btn btn-primary"></input>
-            </form>
-          </li>
-  <!-- <a class="active" class="logout" href="#" method="POST" action='/logout'>Logout</a> -->
-        <% } %>
-      </div>
-      </ul>
-    </nav>
-  </header>
-
-
+<body>
 <div class="container">
     <form id="contact" action="/profile" method="post">
         <div class="row login_box">
@@ -58,7 +44,7 @@
         <input placeholder= '<%=userInfo.email %>' name="email" type="email" tabindex="1" required autofocus>
       </fieldset>
       <fieldset>
-        <input placeholder='<%=userInfo.password %>' name="password"type="password" tabindex="2" required>
+        <input placeholder='Password' name="password"type="password" tabindex="2" required>
       </fieldset>
       <fieldset>
         <input placeholder='<%=userInfo.profile_picture%>' name="profile_picture" type="url" tabindex="3" required>
@@ -70,3 +56,6 @@
       </form>
     </form>
   </div>
+</body>
+</div>
+</html>
