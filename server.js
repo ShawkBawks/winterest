@@ -133,7 +133,7 @@ app.post("/register", (req, res) => {
   app.post('/profile', (req, res) => {
     let userID = findUserID(req.session.user_id).then(result => {
       console.log('IS THIS WORKING')
-      db.query(`UPDATE users SET password = '${req.body.password}', email = '${req.body.email}', profile_picture = '${req.body.profile_picture}' WHERE id = '${result}';`)    
+      db.query(`UPDATE users SET password = '${req.body.password}', email = '${req.body.email}', profile_picture = '${req.body.profile_picture}' WHERE id = '${result}';`)
     }).then(result2 => res.redirect('./profile'))
       // res.redirect('/profile')
       console.log('testtest')
@@ -152,7 +152,7 @@ app.post("/register", (req, res) => {
 
   app.post("/viewArticle/:id/like", (req, res) => {
   const article_id = req.params.id;
-  findUserID(req.session.user_id).then(result => db.query(`UPDATE articles SET author_id = ${result} WHERE id = ${article_id}`).then( r => 
+  findUserID(req.session.user_id).then(result => db.query(`UPDATE articles SET author_id = ${result} WHERE id = ${article_id}`).then( r =>
     res.redirect("/my-articles"))
     )
   });
