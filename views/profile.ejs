@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 <link rel="stylesheet" href="/styles/nav-bar.css" type="text/css" />
 <link rel="stylesheet" href="/styles/grid.css" type="text/css" />
-<!-- <link rel="stylesheet" href="/styles/viewArticle.css" type="text/css" /> -->
+<!-- <link rel="stylesheet" href="/styles/viewArticle.css" type="text" />/css -->
 <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 <link rel="stylesheet" href="styles/profile.css" type="text/css" />
 
@@ -21,7 +21,28 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
-<header><% include partials/_header.ejs %></header>
+<header>
+    <nav class="navbar-fixed-top">
+      <ul>
+        <li><a class="nav-a" href="/">Home</a></li>
+      <div class="sign">
+        <% if(!locals.user){ %>
+          <li style="float:right"><a class="active2" class="login" href="/login"">Login/Register</a></li>
+        <% } else { %>
+          <li><a href="/my-articles">My Articles</a></li>
+          <li><a href="/newArticles">Add Articles</a></li>
+          <li style="float:right"><a href="/profile">Profile</a></li>
+          <li style="float:right">
+            <form method='POST' action='/logout' id='logout'>
+            <input type="submit" class="active" value="Logout" class="btn btn-primary"></input>
+            </form>
+          </li>
+  <!-- <a class="active" class="logout" href="#" method="POST" action='/logout'>Logout</a> -->
+        <% } %>
+      </div>
+      </ul>
+    </nav>
+  </header>
 
 
 <div class="container">

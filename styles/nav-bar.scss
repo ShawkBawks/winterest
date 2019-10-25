@@ -24,6 +24,16 @@ li a:hover {
   text-decoration: none;
 }
 
+li a:visited {
+  text-decoration: none;
+}
+
+#btn-search:visited {
+  text-decoration: none;
+}
+#btn-search:hover {
+  text-decoration: none;
+}
 .active:hover {
   background-color: lightslategray;
 }
