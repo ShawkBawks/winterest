@@ -42,6 +42,9 @@ VALUES ('Top Things To Do In Fall!', 'Now you dont have an excuse as to why you 
 VALUES ('Neat Gadgets 2019!', 'These gadgets are somewhat interesting. Maybe you will find them intereting?', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/index-1563882791.jpg?crop=1.00xw:1.00xh;0,0&resize=980:*',
 'https://www.esquire.com/lifestyle/g25891194/cool-new-tech-gadgets-2019/', 'Technology', '2019-10-01', 1);
 INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
+VALUES ('Who Let The Owls Out? Hoo-hoo?', 'See these amazing creatures up close and get educated on the types of raptors you can see in Beautiful British Columbia!', 'https://i.kym-cdn.com/photos/images/newsfeed/000/196/193/orly.gif?1320616743',
+'https://www.owlrehab.org/tours/', 'Animals', '2019-03-26', 1);
+INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
 VALUES ('Oh Jeez! Look At These Dogs!', 'Oh man, I sure love dogs, they are so funny. Much better than cats.', 'https://i.pinimg.com/736x/9c/4d/b8/9c4db8112505ee7d9a13667a41cc4fda.jpg',
 'https://www.youtube.com/watch?v=pRIyR8wbu64', 'Animals', '2019-07-29', 1);
 INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
@@ -51,35 +54,10 @@ INSERT INTO articles (title, description, thumbnail, url, topic, post_date, auth
 VALUES ('Fun Stuff For The Workplace!', 'Whoa! Super cool things to do! Whooaaaaa!', 'https://media.licdn.com/dms/image/C4E12AQGCtOwNFPT8WQ/article-inline_image-shrink_1500_2232/0?e=1577318400&v=beta&t=U2aNzvneeKuzrF1Fc13MnvXk99nHz5Q4Uwi8bedKj14',
 'https://www.linkedin.com/pulse/40-fun-office-game-ideas-engage-employees-susanna-varghese', 'Workplace', '2019-02-01', 2);
 
+INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
+VALUES ('Want Some Moves? Dance,Dance, Baby!', 'Here are some dance moves that are sure to impress your friends and that special someone.','https://i.ytimg.com/vi/twLdUGytIAQ/maxresdefault.jpg',
+'https://www.youtube.com/watch?v=twLdUGytIAQ', 'Personal', '2019-01-18', 2);
 
 INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
-VALUES ('Some Great Batch Cooking Recipes', 'A truely lovely batch of recipes that are sure to last in the freezer. If you dont eat it all first! AH-HA!', 'https://jamieoliverprod.s3.amazonaws.com/recipe-database/xtra_med/2X6m1M45KKCAMXOf9Y4CLn.jpg',
-'https://www.jamieoliver.com/family/freezer-friendly-recipes/', 'Food', '2019-01-03', 1);
-
-INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
-VALUES ('Got milk? Awesome Milk Bar Recipes!', 'These recipes are sure to satisfy your sweet tooth!', 'https://cdn.shopify.com/s/files/1/0034/7550/5225/articles/Birthday-Truffle-Pile-1_800x_31380ea1-6626-427c-8e21-a3c84dc659ea_500x.jpg?v=1565217799',
-'https://milkbarstore.com/blogs/recipes', 'Food', '2019-04-21', 1);
-
-INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
-VALUES ('Handy Household Life Hacks', 'I havent tried these and do not endorse it. Try at your own risk.', 'https://images2.minutemediacdn.com/image/upload/c_crop,h_1235,w_2200,x_0,y_39/f_auto,q_auto,w_1100/v1554925443/shape/mentalfloss/household_chores.jpg',
- 'http://mentalfloss.com/article/544976/life-hacks-make-8-household-chores-easier', 'Household', '2019-09-17', 2);
-
-INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
-VALUES ('Top Things To Do In Fall!', 'Now you dont have an excuse as to why you are not doing anything!', 'https://images.dailyhive.com/20170926095633/Harvest-HausImage-Brandon-Artis-Photography.jpg',
- 'https://dailyhive.com/vancouver/vancouver-events-fall-2019', 'Outdoors', '2019-05-11', 1);
-
- INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
-VALUES ('Neat Gadgets 2019!', 'These gadgets are somewhat interesting. Maybe you will find them intereting?', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/index-1563882791.jpg?crop=1.00xw:1.00xh;0,0&resize=980:*',
-'https://www.esquire.com/lifestyle/g25891194/cool-new-tech-gadgets-2019/', 'Technology', '2019-10-01', 1);
-
-INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
-VALUES ('Oh Jeez! Look At These Dogs!', 'Oh man, I sure love dogs, they are so funny. Much better than cats.', 'https://i.pinimg.com/736x/9c/4d/b8/9c4db8112505ee7d9a13667a41cc4fda.jpg',
-'https://www.youtube.com/watch?v=pRIyR8wbu64', 'Animals', '2019-07-29', 1);
-
-INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
-VALUES ('Wanna Flip Tires? Check it out!', 'Tons of workout plans to get yourself big enough to flip anything with ease!', 'https://cdn.muscleandstrength.com/sites/default/files/styles/large/public/field/feature-image/workout/swole-factory-thumb.jpg?itok=A0Bn-3GN',
-'https://www.muscleandstrength.com/workout-routines', 'Fitness', '2019-06-24', 1);
-
-INSERT INTO articles (title, description, thumbnail, url, topic, post_date, author_id)
-VALUES ('Fun Stuff For The Workplace!', 'Whoa! Super cool things to do! Whooaaaaa!', 'https://media.licdn.com/dms/image/C4E12AQGCtOwNFPT8WQ/article-inline_image-shrink_1500_2232/0?e=1577318400&v=beta&t=U2aNzvneeKuzrF1Fc13MnvXk99nHz5Q4Uwi8bedKj14',
-'https://www.linkedin.com/pulse/40-fun-office-game-ideas-engage-employees-susanna-varghese', 'Workplace', '2019-02-01', 2);
+VALUES ('Hanging Doors Properly', 'Here is a handy website that shows you how to propely hang doors and tips to prevent your doors from automatically swinging shut or open.', 'https://i.gifer.com/7bG0.gif',
+'https://www.familyhandyman.com/doors/tips-for-hanging-doors/', 'Household', '2019-06-20', 2);
