@@ -23,55 +23,29 @@
 </head>
 <header><% include partials/_header.ejs %></header>
 
-<!------ Include the above in your HEAD tag ---------->
-
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
 
 <div class="container">
-  <div class="row login_box">
-    <div class="col-md-12 col-xs-12" align="center">
-      <div class="outter"><img src="<%=userInfo.profile_picture%>" class="image-circle" /></div>
-      <h1>Hello <%= user %></h1>
-      <h3>Email: <%= userInfo.email %></h3>
+    <form id="contact" action="/profile" method="post">
+        <div class="row login_box">
+            <div class="col-md-12 col-xs-12" align="center">
+              <div class="outter"><img src="<%=userInfo.profile_picture%>" class="image-circle" /></div>
+              <h1>Hello <%= user %></h1>
+              <h3>Email: <%= userInfo.email %></h3>
+            </div>
 
-    </div>
-    <div class="col-md-6 col-xs-6 follow line" align="center">
-      <h3>
-        125651 <br /> <span>LIKES</span>
-      </h3>
-    </div>
-    <div class="col-md-6 col-xs-6 follow line" align="center">
-      <h3>
-        125651 <br /> <span>ARTICLES</span>
-      </h3>
-    </div>
+      <fieldset>
+        <input placeholder= '<%=userInfo.email %>' name="email" type="email" tabindex="1" required autofocus>
+      </fieldset>
+      <fieldset>
+        <input placeholder='<%=userInfo.password %>' name="password"type="password" tabindex="2" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder='<%=userInfo.profile_picture%>' name="profile_picture" type="url" tabindex="3" required>
+      </fieldset>
 
-    <div class="col-md-12 col-xs-12 login_control">
-      <div class="control">
-        <form action="/profile" method="POST">
-          <div class="label">Email Address</div>
-          <input name="email" type="email" class="form-control" placeholder="you@gmail.com" />
-      </div>
-
-      <div class="control">
-        <div class="label">Password</div>
-        <input name="password" type="password" class="form-control" placeholder="password" />
-      </div>
-
-      <div class="control">
-        <div class="label">Profile Picture URL</div>
-        <input name="profile_picture" type="text" class="form-control" placeholder="www.example.com" />
-      </div>
-
-      <div align="center">
-        <button input type="submit" class="btn btn-orange">UPDATE</button>
-      </div>
+      <fieldset>
+        <button type="submit" id="contact-submit">Update</button>
+      </fieldset>
       </form>
-    </div>
-
-
-
+    </form>
   </div>
-</div>
-
-
