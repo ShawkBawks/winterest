@@ -252,5 +252,5 @@ function generateRandomString() {
   return Math.random().toString(36).slice(-6);
  };
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Winterest listening on port ${PORT}`);
 });

@@ -3,10 +3,10 @@ $(document).ready(function () {
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
   });
 
-  const test = function() {
-    alert('');
-    $.item.attr(topic)
-  };
+  $('.filter-nav').hide();
+  $('#btn-search').click(function() {
+    $('.filter-nav').slideToggle(310);
+});
 
   $('#all-btn').click(function() {
         $('.item').each(function(i, obj) {
@@ -143,7 +143,7 @@ $(document).ready(function () {
         <p>${article.description}</p>
       </div>
       <div class="article_link">
-        <a target="_blank" href="${article.url}">Link</a>
+        <a class="item-url w3-button" target="_blank" href="${article.url}">Full Article</a>
       </div>
     </div>
     </a>

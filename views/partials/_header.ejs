@@ -13,7 +13,7 @@
   <nav class="navbar-fixed-top">
     <ul>
       <li><a class="nav-a" href="/">Home</a></li>
-      <li><a class="nav-a" href="#" class="drop-search">Search</a></li>
+      <li><a id="btn-search" class="nav-a" href="#" class="drop-search">Search</a></li>
     <div class="sign">
       <% if(!locals.user){ %>
         <li style="float:right"><a class="active2" class="login" href="/login"">Login/Register</a></li>
@@ -22,9 +22,11 @@
         <li><a href="/newArticles">Add Articles</a></li>
         <li style="float:right"><a href="/profile">Profile</a></li>
         <li style="float:right">
+          <a>
           <form method='POST' action='/logout' id='logout'>
           <input type="submit" class="active" value="Logout" class="btn btn-primary"></input>
           </form>
+        </a>
         </li>
 <!-- <a class="active" class="logout" href="#" method="POST" action='/logout'>Logout</a> -->
       <% } %>
