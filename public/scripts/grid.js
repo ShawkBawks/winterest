@@ -7,10 +7,13 @@ function resizeGridItem(item){
 }
 
 function resizeAllGridItems(){
+  console.log("HERHEHRHERHEHRHRHEHRHERHHREHERH")
+  setTimeout(()=>{
+    for(x=0;x<allItems.length;x++){
+      resizeGridItem(allItems[x]);
+    }
+  }, 60)
   allItems = document.getElementsByClassName("item");
-  for(x=0;x<allItems.length;x++){
-    resizeGridItem(allItems[x]);
-  }
 }
 
 function resizeInstance(instance){

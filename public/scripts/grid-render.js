@@ -109,10 +109,13 @@ $(document).ready(function () {
     for (let article in articles){
       let output = createArticleTile(articles[article]);
       $('.grid').prepend(output);
+      resizeAllGridItems();
       // console.log(articles[article])
       // console.log('test renderArticles:', article)
     }
+      resizeAllGridItems();
   }
+
 
   // let renderArticles = (articles) => {
   //   $('.grid').empty();

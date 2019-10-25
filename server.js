@@ -23,7 +23,7 @@ db.connect();
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 // app.use(cookie-bodyParser())
-// app.use(cookieParser()) lolzzzz
+// app.use(cookieParser())
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
@@ -45,7 +45,7 @@ app.use(cookieSession({
 const usersRoutes = require("./routes/users");
 const articlesRoutes = require("./routes/articles");
 const myArticlesRoutes = require("./routes/my-articles-query");
-// const newArticlesRoutes = require("./routes/newArticlesRoutesrticles");
+// const newArticlesRoutes = require("./routes/newArticlesRoutes");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -103,6 +103,13 @@ app.post('/login', (req, res) => {
   })
 });
 
+app.post('/like', (req, res) => {
+  console.log(req.params)
+  let userID = findUserID(req.session.user_id).then(result => {
+    db.query(`UPDATE articles SET author_id = '${result}' WHERE articles.id = `).then(result2 => res.redirect('./myArticles'))
+  })
+});
+
 //json
 app.get('/users', function(res){
   console.log(res)
@@ -126,24 +133,91 @@ app.post("/register", (req, res) => {
   app.post('/profile', (req, res) => {
     let userID = findUserID(req.session.user_id).then(result => {
       console.log('IS THIS WORKING')
-db.query(`UPDATE users SET password = '${req.body.password}', email = '${req.body.email}', profile_picture = '${req.body.profile_picture}' WHERE id = '${result}';`)    }).then(result2 => res.redirect('./profile'))
-    // res.redirect('/profile')
-    console.log('testtest')
-    console.log(req.body.password);
-    console.log(req.body.email);
-    console.log(req.body.profile_picture);
+      db.query(`UPDATE users SET password = '${req.body.password}', email = '${req.body.email}', profile_picture = '${req.body.profile_picture}' WHERE id = '${result}';`)    
+    }).then(result2 => res.redirect('./profile'))
+      // res.redirect('/profile')
+      console.log('testtest')
+      console.log(req.body.password);
+      console.log(req.body.email);
+      console.log(req.body.profile_picture);
+    });
+    app.post('/like', (req, res) => {
+      let userID = findUserID(req.session.user_id).then(result => {
+    db.query(`UPDATE articles SET author_id = '${result}`)
+    console.log(result)
+    .then(result2 => res.redirect('./myArticles'))
+    })
   });
+
+
+  app.post("/viewArticle/:id/like", (req, res) => {
+  const article_id = req.params.id;
+  findUserID(req.session.user_id).then(result => db.query(`UPDATE articles SET author_id = ${result} WHERE id = ${article_id}`).then( r => 
+    res.redirect("/my-articles"))
+    )
+  });
+
+//   app.post('/like')
+//   let userID = findUserID(req.session.user_id).then(result => {
+// db.query(`UPDATE articles SET author_id = '${result}' WHERE id = ${article_id}`).then(result2 => res.redirect('./myArticles'))
+//   });
 
 
 app.get("/viewArticle/:id", (req, res) => {
   const article_id = req.params.id;
-  return db.query(`Select * from articles where id = ${article_id}`)
+  return db.query(`Select articles.*, comment, posted_at from articles LEFT JOIN article_reviews ON articles.id = article_reviews.article_id where articles.id = ${article_id} ORDER BY posted_at DESC`)
   .then((result)=>{
-    let article = result.rows[0];
-    let templateVars = {user: req.session.user_id, article};
+    // console.log(result.rows[0]);
+    // let article = result.rows[0];
+    // let templateVars = {user: req.session.user_id, article_id, article};
+    // console.log(templateVars);
+    const allResults = result.rows;
+    let comments = [];
+    let article = allResults[0];
+    for (row of allResults) {
+      let commentObject = {};
+      commentObject['comment'] = row.comment;
+      commentObject['posted_at'] = row.posted_at;
+      comments.push(commentObject);
+    }
+    article["allComments"] = comments;
+
+    let templateVars = {user: req.session.user_id, article, article_id};
     res.render("viewArticle", templateVars)
   });
 });
+
+app.post("/viewArticle/:id", (req, res) => {
+  let userID = 0;
+  const articleID = req.params.id;
+  findUserID(req.session.user_id).then(result => {
+    userID = result;
+    console.log("POST NEW COMMENT:",userID, articleID)
+  //   return db.query(`INSERT INTO article_reviews (comment, rating, article_id, user_id) VALUES
+  //   ('${req.body.text}', '3', ${articleID}, ${userID.toString()});
+  // ` ).then(async (data) => {
+  //   // res.redirect(`/viewArticle/${articleID}`);
+  //   console.log('what is data', data)
+  //   console.log("articleID to get coment", articleID)
+  //   const commentQuery = await db.query(`SELECT comment FROM articles LEFT JOIN article_reviews ON articles.id = article_reviews.article_id WHERE article_reviews.article_id = ${articleID}`);
+  //   console.log("db query ", commentQuery);
+  //   return commentQuery;
+
+  //   res.json()
+
+    let currentTime = Date.now();
+  console.log("Time: ", currentTime);
+    return db.query(`INSERT INTO article_reviews (comment, rating, posted_at, article_id, user_id) VALUES
+    ('${req.body.text}', '3', to_timestamp(${currentTime}/1000), ${articleID}, ${userID.toString()});
+    ` ).then(() => {
+    res.redirect(`/viewArticle/${articleID}`);
+  })
+  }).catch(err => {
+    console.log("Error in getting userid: ", err);
+  });
+
+});
+
 function authenticateUser(username, password){
   return db.query("Select id, username, email from users where username = '"+username+"' and password='"+password+"'")
   .then((result)=>{
